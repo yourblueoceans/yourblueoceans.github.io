@@ -58,7 +58,7 @@ const Topbar: React.FC = () => {
       <div className="mx-auto hidden max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:flex">
         <button
           type="button"
-          onClick={() => handleNavigate("hero")}
+          onClick={() => handleNavigate("about")}
           className="flex items-center gap-3 text-left text-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400"
         >
           <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 bg-slate-900 text-lg font-semibold shadow-[0_12px_30px_rgba(15,23,42,0.8)]">
@@ -105,7 +105,7 @@ const Topbar: React.FC = () => {
         <div className="flex items-center justify-between">
           <button
             type="button"
-            onClick={() => handleNavigate("hero")}
+            onClick={() => handleNavigate("about")}
             className="flex items-center gap-3 text-left text-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400"
           >
             <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 bg-slate-900 text-lg font-semibold shadow-[0_12px_30px_rgba(15,23,42,0.8)]">

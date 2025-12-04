@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { cardClass, heading2, innerClass, overline, sectionClass, sectionMotion } from "../ui/tokens";
 
@@ -49,68 +49,38 @@ const projects: ProjectMedia[] = [
   },
 ];
 
-const MediaDeliverablesSection: React.FC = () => {
-  const railRef = useRef<HTMLDivElement>(null);
-
-  const handleScroll = (direction: number) => {
-    const node = railRef.current;
-    if (!node) return;
-    const amount = node.clientWidth * 0.8;
-    node.scrollBy({ left: direction * amount, behavior: "smooth" });
-  };
-
-  return (
-    <motion.section id="media-deliverables" className={sectionClass} {...sectionMotion}>
-      <div className={innerClass}>
-        <div>
-          <p className={overline}>MEDIA &amp; DELIVERABLES</p>
-          <h2 className={heading2}>프로젝트 산출물 &amp; 리포트</h2>
-          <p className="section-lead mt-3">각 프로젝트의 리포트, 발표 자료, 설계 문서를 카드형 레일로 묶어 바로 확인할 수 있게 했습니다.</p>
-        </div>
-
-        <div className="relative mt-8">
-          <button
-            type="button"
-            aria-label="Scroll left"
-            onClick={() => handleScroll(-1)}
-            className="absolute left-0 top-1/2 z-10 hidden -translate-y-1/2 rounded-full border border-slate-200/70 bg-white p-3 text-lg text-slate-700 shadow-lg md:flex"
-          >
-            ←
-          </button>
-          <button
-            type="button"
-            aria-label="Scroll right"
-            onClick={() => handleScroll(1)}
-            className="absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 rounded-full border border-slate-200/70 bg-white p-3 text-lg text-slate-700 shadow-lg md:flex"
-          >
-            →
-          </button>
-
-          <div ref={railRef} className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth">
-            {projects.map((project) => (
-              <article key={project.id} className={`${cardClass} snap-start min-w-[320px] max-w-sm flex-shrink-0 overflow-hidden`}>
-                <div className="h-44 w-full rounded-2xl bg-white/60 shadow-inner" />
-                <div className="mt-5 space-y-4">
-                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-500">{project.category}</div>
-                  <h3 className="text-[var(--fs-card-title)] font-semibold text-[var(--color-text-strong)] leading-snug">{project.title}</h3>
-                  <p className="section-body line-clamp-3">{project.summary}</p>
-                  <div className="space-y-3">
-                    {project.assets.map((asset) => (
-                      <a key={asset.label} href={asset.href} target="_blank" rel="noreferrer" className="deliverable-row">
-                        <span>{asset.label}</span>
-                        <span className="badge">{asset.badge}</span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
+const MediaDeliverablesSection: React.FC = () => (
+  <motion.section id="media-deliverables" className={sectionClass} {...sectionMotion}>
+    <div className={innerClass}>
+      <div>
+        <p className={overline}>MEDIA &amp; DELIVERABLES</p>
+        <h2 className={heading2}>프로젝트 산출물 &amp; 리포트</h2>
+        <p className="section-lead mt-3">각 프로젝트의 리포트, 발표 자료, 설계 문서를 한 번에 확인할 수 있도록 정리했습니다.</p>
       </div>
-    </motion.section>
-  );
-};
+
+      <div className="deliverables-grid">
+        {projects.map((project) => (
+          <article key={project.id} className={cardClass}>
+            <div className="h-44 w-full rounded-2xl bg-white/60 shadow-inner" />
+            <div className="mt-5 space-y-4">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-500">{project.category}</div>
+              <h3 className="text-[var(--font-h2)] font-semibold text-[var(--color-text-strong)] leading-snug">{project.title}</h3>
+              <p className="section-body line-clamp-3">{project.summary}</p>
+              <div className="space-y-3">
+                {project.assets.map((asset) => (
+                  <a key={asset.label} href={asset.href} target="_blank" rel="noreferrer" className="deliverable-row">
+                    <span>{asset.label}</span>
+                    <span className="badge">{asset.badge}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </motion.section>
+);
 
 export default MediaDeliverablesSection;
 

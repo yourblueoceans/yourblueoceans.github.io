@@ -13,6 +13,26 @@ type CaseStudy = {
   techStack: string[];
 };
 
+const featuredHighlights = [
+  {
+    title: "Problem",
+    body: "민감정보가 포함된 내부 문서를 테스트/운영 환경에서 안전하게 다루고, 클라우드에 암호화된 형태로 저장해야 한다는 요구.",
+  },
+  {
+    title: "Approach",
+    body: "문서 업로드 → PII 탐지·마스킹 → AES-GCM 암복호화 → AWS KMS 기반 키 관리 전체 플로우를 설계하고 PoC 구현.",
+  },
+  {
+    title: "Outcome",
+    body: "20+ 문서 포맷 자동 마스킹 성공, 캡스톤 디자인 2위, “실제 솔루션 같다”는 심사위원 피드백 확보.",
+  },
+];
+
+const featuredBullets = [
+  "AWS KMS + AES-GCM 키 체계 설계, 자동 키 순환/재암호화 시나리오 정의",
+  "업로드 즉시 PII 탐지·마스킹 → 암호화 저장 → 접근 제어 로그까지 이어지는 End-to-End 흐름",
+];
+
 const caseStudies: CaseStudy[] = [
   {
     id: "lockument",
@@ -47,14 +67,51 @@ const caseStudies: CaseStudy[] = [
 ];
 
 const CaseStudiesSection: React.FC = () => (
-  <motion.section id="case-study-list" className={sectionClass} {...sectionMotion}>
+  <motion.section id="case-studies" className={sectionClass} {...sectionMotion}>
     <div className={innerClass}>
       <div>
         <p className={overline}>CASE STUDIES</p>
-        <h2 className={heading2}>보안 컨설팅을 목표로 한 대표 프로젝트 3선</h2>
+        <h2 className={heading2}>보안 컨설팅을 지향하는 주니어 정보보안 엔지니어의 대표 프로젝트 3선</h2>
         <p className="section-lead mt-3">
-          실제 보안 컨설팅 환경을 가정해 진행한 프로젝트들입니다. 문제 정의부터 접근 방식, 결과와 인사이트까지 Case Study 포맷으로 정리했습니다.
+          Web VAPT, 클라우드 보안, 사내형 네트워크 인프라 등 실제 보안 컨설팅 환경을 가정한 프로젝트를 Case Study 형태로 정리했습니다.
         </p>
+      </div>
+
+      <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)]">
+        <div className="space-y-6">
+          <div className="grid gap-4 sm:grid-cols-3">
+            {featuredHighlights.map((item) => (
+              <article key={item.title} className={cardClass}>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-500">{item.title}</p>
+                <p className="mt-3 text-[var(--font-body)] leading-relaxed text-[var(--color-text)]">{item.body}</p>
+              </article>
+            ))}
+          </div>
+          <ul className={`${cardClass} space-y-3`}>
+            {featuredBullets.map((point) => (
+              <li key={point} className="flex gap-3 text-[var(--font-body)] leading-relaxed">
+                <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-500" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <article className={`${cardClass} flex flex-col justify-between`}>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-500">Lockument · PII Masking &amp; Encryption</p>
+            <h3 className="mt-2 text-[var(--font-h2)] leading-tight text-[var(--color-text-strong)]">민감정보 마스킹과 AES-GCM 암호화를 결합한 SaaS PoC</h3>
+            <p className="section-body mt-4">
+              문서 업로드 직후 개인정보 필드를 탐지·마스킹하고, AWS KMS와 AES-GCM으로 암복호화해 저장하는 서비스 흐름을 설계했습니다. 고객사 환경에 맞춰 PoC →
+              리포트 → 발표까지 이어지는 컨설팅 프로세스를 재현했습니다.
+            </p>
+          </div>
+          <div className="mt-6 space-y-3">
+            <p className="text-sm font-semibold text-[var(--color-text-strong)]">역할</p>
+            <p className="section-body">보안 아키텍트 · 요구사항 정의 · 기능 설계 · 테스트 및 발표.</p>
+            <p className="text-sm font-semibold text-[var(--color-text-strong)]">핵심 Deliverables</p>
+            <p className="section-body">PII 정책 문서, 암호화 설계도, VAPT 대응 플랜, PoC Demo.</p>
+          </div>
+        </article>
       </div>
 
       <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">

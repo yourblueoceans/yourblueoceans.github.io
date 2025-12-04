@@ -13,44 +13,44 @@ type Service = {
 
 const services: Service[] = [
   {
-    title: "웹 취약점 진단(Web VAPT)",
-    subtitle: "Upload · XSS · CSRF · Directory Indexing",
-    headline: "실제 모의해킹 절차 기반 VAPT 리포트 작성 가능",
+    title: "웹 취약점 진단(Web VAPT) & AppSec",
+    subtitle: "Upload · XSS · CSRF · OWASP Top 10",
+    headline: "시나리오 기반 VAPT 절차와 리포트 작성 경험",
     description:
-      "OWASP Top 10과 실제 모의해킹 절차를 바탕으로 웹 애플리케이션 취약점을 분석하고 리포트로 정리할 수 있습니다.",
-    bullets: ["시나리오 기반 테스트 케이스 & PoC", "Burp Suite · DevTools 요청/응답 분석", "기술/비기술 리포트 작성"],
+      "Burp Suite, Chrome DevTools를 활용해 Upload/XSS/CSRF 취약점을 재현하고, 조치방안을 포함한 Web VAPT 리포트를 작성합니다.",
+    bullets: ["OWASP Top 10 기반 테스트 케이스 설계", "요청/응답 분석 및 PoC 스크립트 작성", "기술·비기술 리포트와 브리핑"],
     tools: ["Burp Suite", "OWASP ZAP", "Chrome DevTools"],
   },
   {
-    title: "클라우드 · 애플리케이션 보안 설계",
-    subtitle: "PII 마스킹 · 암복호화 플로우 · KMS 연동",
-    headline: "고객 데이터 흐름에 맞춘 암복호화 · 키 관리 설계",
+    title: "클라우드 · 데이터 보안 설계",
+    subtitle: "AWS KMS · AES-GCM · PII Masking",
+    headline: "데이터 흐름에 맞춘 암복호화·키 관리와 PoC 구축",
     description:
-      "개인정보 처리 웹서비스를 위한 PII 탐지·마스킹 및 안전한 암복호화 플로우를 설계·구현한 경험을 제공합니다.",
-    bullets: ["AWS KMS + AES-GCM 플로우 설계", "문서 포맷별 PII 정책 정의", "보안 요구사항 → 개발 태스크 변환"],
+      "Lockument 프로젝트처럼 PII 마스킹, AES-GCM, AWS KMS를 결합해 개인정보 흐름을 안전하게 설계하고, Docker 기반 PoC 환경으로 검증합니다.",
+    bullets: ["AWS KMS + AES-GCM 키 관리 플로우", "문서 포맷별 PII 정책 설계", "PoC 환경 구성 및 테스트 자동화"],
     tools: ["AWS KMS", "AES-GCM", "Docker"],
   },
   {
-    title: "네트워크 인프라 & 방화벽/DMZ",
+    title: "네트워크 & 인프라 보안",
     subtitle: "VLAN · 방화벽 정책 · DMZ 분리",
-    headline: "사내망 분리에 맞춘 VLAN·방화벽 정책 수립 및 검증",
+    headline: "사내형 네트워크 분리와 트래픽 검증 문서화",
     description:
-      "소규모 사내망을 가정해 L2/L3 · 방화벽 · DMZ 구성을 설계하고, 정상/비정상 트래픽을 문서화합니다.",
-    bullets: ["서비스/관리/DMZ 세그먼트 설계", "방화벽 정책 정의 및 테스트", "패킷 캡처를 통한 검증"],
+      "서비스망/관리망/DMZ를 분리하고 방화벽 정책·패킷 캡처를 통해 정상/비정상 트래픽을 검증, 요구사항과 결과를 문서화합니다.",
+    bullets: ["세그먼트 디자인 & ACL 정의", "방화벽/IDS 정책 설정 및 테스트", "패킷 캡처 근거 기반 보고"],
     tools: ["Cisco IOS", "TrusGuard", "Wireshark"],
   },
   {
-    title: "보안 문서화 & 발표",
-    subtitle: "리포트 · 제안서 · 프레젠테이션",
-    headline: "비기술자도 이해할 수 있는 보안 커뮤니케이션",
+    title: "Security PoC & Pre-sales 협업",
+    subtitle: "Security Consulting · Reporting",
+    headline: "요구사항 정의부터 리포트·제안서까지 일관된 커뮤니케이션",
     description:
-      "비기술자도 이해할 수 있는 형태로 보안 프로젝트를 설명하고 결과를 리포트·발표 자료로 정리하는 역할에 강점이 있습니다.",
-    bullets: ["취약점 리포트 · 조치 계획서 작성", "슬라이드 구성 및 스토리텔링", "이해관계자별 맞춤 커뮤니케이션"],
+      "Security PoC 관점에서 요구사항을 정리하고 테스트·결과 리포트를 작성하며, 프리세일즈 협업까지 고려한 문서를 준비합니다.",
+    bullets: ["요구사항 정의 → 테스트 → 결과 정리", "보안 리포트·제안서·발표 슬라이드 제작", "이해관계자별 커뮤니케이션 정리"],
     tools: ["Google Slides", "Notion", "MS Office"],
   },
 ];
 
-const serviceIcons = ["🛡️", "☁️", "🌐", "🗂️"];
+const serviceIcons = ["🛡️", "☁️", "🌐", "📊"];
 
 const WhatICanDoSection: React.FC = () => {
   return (
@@ -62,7 +62,7 @@ const WhatICanDoSection: React.FC = () => {
           <p className="section-lead mt-3">인턴·주니어로 합류했을 때 어떤 일을 맡길 수 있을지를 기준으로 정리했습니다. 서비스 관점에서 역할을 정의합니다.</p>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {services.map((service, idx) => (
             <article key={service.title} className={`${cardClass} flex h-full flex-col gap-4`}>
               <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-900/10 text-2xl">{serviceIcons[idx]}</div>

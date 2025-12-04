@@ -1,6 +1,6 @@
 import React from "react";
 
-const keywords = ["Cloud Security", "Web VAPT (Upload / XSS / CSRF)", "Network Infra & Firewall", "AWS · Docker · React"];
+const keywords = ["Security Consultant in Training", "Web VAPT · Upload/XSS/CSRF", "Cloud & Infra Security", "Security Solution PoC & Pre-sales"];
 
 const profileFacts = [
   { label: "Program", value: "폴리텍 대전 · 클라우드보안과" },
@@ -15,77 +15,69 @@ const profileMetrics = [
 ];
 
 const HeroSection: React.FC = () => (
-  <section id="hero" className="section section-hero text-slate-50">
+  <section id="about" className="hero">
     <div className="hero-cube">
-      <img src="/security-cube.png" alt="Security cube" />
+      <img src="/security-cube.png" alt="Security cube visual" />
     </div>
-    <div className="section-inner relative z-10">
-      <div className="hero-grid">
-        <div className="space-y-6">
-          <span className="hero-pill">서상원 (Sangwon Suh) · Security Consulting &amp; Information Security</span>
-          <h1 className="hero-title">
+    <div className="hero-inner">
+      <div className="hero-layout">
+        <div className="hero-text">
+          <p className="hero-kicker">서상원 (Sangwon Suh) · Security Consulting &amp; Information Security</p>
+          <h1 className="hero-heading">
             클라우드 보안 · 웹 취약점 진단에 강한
             <br />
-            주니어 정보보안 엔지니어,
-            <br />
-            보안컨설턴트를 지향하는 서상원
+            보안컨설턴트 지망생, 서상원
           </h1>
-          <p className="hero-subtitle max-w-2xl">
-            Junior Information Security Engineer focusing on Security Consulting, Web VAPT, and Cloud & Infra Security.
+          <p className="hero-subtext">
+            웹 VAPT, 클라우드 보안, 네트워크 인프라를 직접 설계·실습하며 고객 환경을 이해하는 주니어 정보보안 엔지니어를 지향합니다.
           </p>
-          <p className="max-w-xl text-base leading-7 text-slate-200">
-            대한항공 현장 운영과 해외 경험을 바탕으로 실제 고객 환경을 이해하는 보안 설계와 컨설팅을 지향합니다.
+          <p className="hero-subtext hero-subtext-secondary">
+            Security Consultant in training · Web VAPT · Cloud Security · Network &amp; Infra Security · Security Solution PoC &amp; Pre-sales Collaboration.
           </p>
-          <p className="max-w-xl text-base leading-7 text-slate-200">
+          <p className="hero-subtext hero-subtext-secondary">
             Lockument 캡스톤에서 PII 마스킹과 AES-GCM 암·복호화 플로우를 설계했고, Upload/XSS/CSRF 기반 Web VAPT와 사내형 네트워크 인프라 구축 프로젝트를 통해 요구사항 정의–진단–리포트–발표에 이르는 컨설팅 워크플로우를 경험했습니다.
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="hero-tags">
             {keywords.map((label) => (
-              <span key={label} className="rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-[0.08em]">
+              <span key={label} className="hero-tag">
                 {label}
               </span>
             ))}
           </div>
-          <div className="flex flex-wrap gap-4">
-            <a href="#case-studies" className="btn-primary text-sm">
+          <div className="hero-cta-row">
+            <a href="#case-studies" className="hero-cta-main">
               Case Studies 보기
             </a>
-            <a
-              href="/resume_kr.pdf"
-              className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/5 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-white/15"
-            >
-              이력서 다운로드 (KR)
+            <a href="#contact" className="hero-cta-ghost">
+              협업·채용 문의
             </a>
           </div>
         </div>
-        <aside className="hero-profile-card w-full max-w-md justify-self-center lg:justify-self-end">
-          <div className="flex flex-col gap-6 text-white">
-            <div className="flex items-center gap-4">
-              <img src="/profile.jpg" alt="서상원 증명사진" />
-              <div>
-                <p className="text-lg font-semibold">서상원 (Sangwon Suh)</p>
-                <p className="text-xs uppercase tracking-[0.2em] text-slate-300">Cloud Security &amp; Information Protection</p>
-              </div>
+        <aside className="hero-profile">
+          <div className="profile-card">
+            <div className="profile-photo-wrap">
+              <img src="/profile.jpg" alt="서상원 프로필" className="profile-photo" />
             </div>
-            <dl className="space-y-3 text-sm text-slate-200">
+            <div className="profile-meta">
+              <h2 className="profile-name">서상원 (Sangwon Suh)</h2>
+              <p className="profile-role">Security Consultant in Training · Cloud Security &amp; Information Protection</p>
+            </div>
+            <dl className="profile-list">
               {profileFacts.map((fact) => (
-                <div key={fact.label} className="flex items-center justify-between rounded-2xl border border-white/15 bg-white/5 px-4 py-2">
-                  <dt className="text-xs uppercase tracking-[0.16em] text-slate-300">{fact.label}</dt>
-                  <dd className="font-semibold text-white">{fact.value}</dd>
+                <div key={fact.label} className="profile-item">
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
                 </div>
               ))}
             </dl>
-            <div className="grid grid-cols-3 gap-3 rounded-2xl border border-white/15 bg-white/5 p-4 text-center">
+            <div className="profile-stats-row">
               {profileMetrics.map((metric) => (
-                <div key={metric.label}>
-                  <p className="text-2xl font-semibold text-white">{metric.value}</p>
-                  <p className="text-[0.65rem] uppercase tracking-[0.2em] text-slate-300">{metric.label}</p>
+                <div key={metric.label} className="profile-stat">
+                  <span className="profile-stat-num">{metric.value}</span>
+                  <span className="profile-stat-label">{metric.label}</span>
                 </div>
               ))}
             </div>
-            <p className="text-sm leading-relaxed text-slate-200">
-              현재 Web VAPT · Network Security · Cloud Security PoC를 중심으로 실습을 이어가며, 보안 리포트/제안서 작성과 발표를 병행하고 있습니다.
-            </p>
           </div>
         </aside>
       </div>

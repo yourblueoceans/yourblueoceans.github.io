@@ -23,12 +23,15 @@ const strengths = [
 
 const AboutSection: React.FC = () => {
   return (
-    <motion.section id="about" className={sectionClass} {...sectionMotion}>
+    <motion.section id="about-details" className={sectionClass} {...sectionMotion}>
       <div className={`${innerClass} md:grid md:grid-cols-[minmax(0,1.5fr)_minmax(0,1.1fr)] md:items-start md:gap-12`}>
         <div>
           <p className={overline}>ABOUT</p>
           <h2 className={heading2}>비전공에서 클라우드 보안으로, 고객 경험을 이해하는 보안컨설턴트 지망생</h2>
-          <div className="section-lead mt-3">현장 운영과 고객 경험을 이해하는 백그라운드 위에, 클라우드 보안과 웹 취약점 진단 역량을 더해가고 있습니다.</div>
+          <div className="section-lead mt-3 space-y-2">
+            <p>비전공에서 시작해 항공사 현장 운영과 해외 경험을 거쳐, 지금은 웹 취약점 진단과 클라우드·인프라 보안에 집중하고 있는 주니어 정보보안 엔지니어입니다.</p>
+            <p>장기적으로는 고객 환경을 깊이 이해하고 제안까지 수행할 수 있는 보안컨설턴트형 정보보안 전문가를 지향합니다.</p>
+          </div>
           <div className={`${bodyText} mt-4 space-y-4`}>
             <p>
               저는 대전대학교 경영학과를 졸업하고, 대한항공에서 근무하며 현장 운영과 고객 경험을 가까이에서 경험했습니다. 비정상 상황이 발생했을 때 여러 부서와 협력하여 승객 동선, 서류, 휠체어 지원, 승무원 호흡까지 조율했던 경험은{" "}
