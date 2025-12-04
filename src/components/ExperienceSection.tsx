@@ -28,8 +28,8 @@ const certs = [
 
 const ExperienceSection: React.FC = () => {
   return (
-    <section id="experience" className="border-b border-slate-800/60 bg-slate-950">
-      <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+    <section id="experience" className="relative border-b border-slate-800/60 bg-slate-950">
+      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28 lg:px-8 lg:py-32">
         <div className="grid gap-10 lg:grid-cols-[3fr,2fr]">
           {/* LEFT: Experience Timeline */}
           <div className="space-y-5">

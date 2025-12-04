@@ -6,21 +6,22 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="bg-slate-950">
-      <div className="mx-auto max-w-4xl px-6 py-16 sm:py-20">
-        <div className="space-y-4 text-center">
+    <section id="contact" className="relative overflow-hidden bg-slate-950">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.35),transparent_60%)]" />
+      <div className="relative mx-auto max-w-4xl px-6 py-24 sm:py-28 lg:px-8 lg:py-32">
+        <div className="rounded-[32px] border border-white/10 bg-slate-950/80 px-8 py-12 text-center shadow-[0_35px_120px_rgba(15,23,42,0.8)]">
           <p className="text-xs font-semibold tracking-[0.25em] text-violet-300">CONTACT</p>
-          <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
+          <h2 className="mt-4 text-2xl font-semibold text-slate-50 sm:text-3xl">
             웹 취약점 진단·클라우드 보안 PoC에 대해 이야기 나누고 싶으시다면
           </h2>
-          <p className="text-sm text-slate-400">
-            인턴·주니어 포지션, 프로젝트 협업, 보안 컨설팅/영업 관련 논의 등 언제든지 편하게 연락 주시면 감사하겠습니다.
+          <p className="mt-3 text-sm text-slate-400">
+            인턴·주니어 포지션, 프로젝트 협업, 보안 컨설팅/영업 관련 논의 등 언제든지 편하게 연락 주세요.
           </p>
-          <div className="mt-4 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             <button
               type="button"
               onClick={handleEmail}
-              className="inline-flex items-center justify-center rounded-full bg-violet-500 px-6 py-2.5 text-sm font-medium text-white shadow-md transition hover:bg-violet-400 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-500 to-indigo-400 px-6 py-3 text-sm font-semibold text-white shadow-[0_20px_50px_rgba(76,29,149,0.55)] transition hover:from-violet-400 hover:to-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400"
             >
               이메일 보내기
             </button>
@@ -28,12 +29,12 @@ const ContactSection: React.FC = () => {
               href="https://github.com/yourblueoceans"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-900/70 px-6 py-2.5 text-sm font-medium text-slate-100 hover:bg-slate-800/90"
+              className="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-900/60 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-500"
             >
               GitHub 보기
             </a>
           </div>
-          <p className="pt-4 text-[11px] text-slate-500">© {new Date().getFullYear()} Sangwon Seo. All rights reserved.</p>
+          <p className="mt-8 text-[11px] text-slate-500">© {new Date().getFullYear()} Sangwon Seo. All rights reserved.</p>
         </div>
       </div>
     </section>

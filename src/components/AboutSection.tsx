@@ -21,8 +21,8 @@ const strengths = [
 
 const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="border-b border-slate-800/60 bg-slate-950">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-16 sm:py-20 lg:flex-row">
+    <section id="about" className="relative border-b border-slate-800/60 bg-slate-950">
+      <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-24 sm:py-28 lg:flex-row lg:px-8 lg:py-32">
         {/* LEFT: 스토리 */}
         <div className="flex-1 space-y-4">
           <p className="text-xs font-semibold tracking-[0.25em] text-violet-300">ABOUT</p>
@@ -32,7 +32,7 @@ const AboutSection: React.FC = () => {
           <p className="text-xs font-medium text-slate-400 sm:text-[13px]">
             경영학 · 대한항공 · 해외 경험을 바탕으로, 이제는 클라우드 보안과 보안컨설팅에 집중하고 있습니다.
           </p>
-          <div className="space-y-3 text-sm leading-relaxed text-slate-300 sm:text-[15px]">
+          <div className="space-y-4 text-sm leading-relaxed text-slate-300 sm:text-[15px]">
             <p>
               저는 대전대학교 경영학과를 졸업하고, 대한항공에서 근무하며 현장 운영과 고객 경험을 가까이에서 경험했습니다. 비정상
               상황이 발생했을 때 여러 부서와 협력하여 승객 동선, 서류, 휠체어 지원, 승무원 호흡까지 조율했던 경험은{" "}
@@ -57,11 +57,11 @@ const AboutSection: React.FC = () => {
         {/* RIGHT: Strengths */}
         <div className="flex-1 space-y-4">
           <p className="text-xs font-semibold tracking-[0.25em] text-violet-300">STRENGTHS</p>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2">
             {strengths.map((item) => (
               <div
                 key={item.title}
-                className="rounded-3xl border border-slate-800 bg-slate-900/70 p-4 text-[13px] text-slate-300 shadow-[0_12px_35px_rgba(15,23,42,0.8)]"
+                className="min-h-[160px] rounded-3xl border border-slate-800 bg-slate-900/70 p-4 text-[13px] text-slate-300 shadow-[0_12px_35px_rgba(15,23,42,0.8)]"
               >
                 <h3 className="mb-1 text-[13px] font-semibold text-slate-50">{item.title}</h3>
                 <p className="leading-relaxed">{item.body}</p>
