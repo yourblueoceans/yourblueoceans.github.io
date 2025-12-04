@@ -1,4 +1,5 @@
 import React from "react";
+import { CARD_SURFACE, CARD_HOVER, SECTION_CONTAINER, SECTION_SPACING, EYEBROW_TEXT } from "../constants/layout";
 
 const strengths = [
   {
@@ -21,11 +22,11 @@ const strengths = [
 
 const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="relative border-b border-slate-800/60 bg-slate-950">
-      <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-24 sm:py-28 lg:flex-row lg:px-8 lg:py-32">
+    <section id="about" className={SECTION_SPACING}>
+      <div className={`${SECTION_CONTAINER} flex flex-col gap-12 py-24 sm:py-28 lg:flex-row lg:py-32`}>
         {/* LEFT: 스토리 */}
         <div className="flex-1 space-y-4">
-          <p className="text-xs font-semibold tracking-[0.25em] text-violet-300">ABOUT</p>
+          <p className={EYEBROW_TEXT}>ABOUT</p>
           <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
             비전공에서 클라우드 보안으로, 고객 경험을 이해하는 보안컨설턴트 지망생
           </h2>
@@ -56,12 +57,12 @@ const AboutSection: React.FC = () => {
 
         {/* RIGHT: Strengths */}
         <div className="flex-1 space-y-4">
-          <p className="text-xs font-semibold tracking-[0.25em] text-violet-300">STRENGTHS</p>
+          <p className={EYEBROW_TEXT}>STRENGTHS</p>
           <div className="grid gap-4 md:grid-cols-2">
             {strengths.map((item) => (
               <div
                 key={item.title}
-                className="min-h-[160px] rounded-3xl border border-slate-800 bg-slate-900/70 p-4 text-[13px] text-slate-300 shadow-[0_12px_35px_rgba(15,23,42,0.8)]"
+                className={`min-h-[160px] ${CARD_SURFACE} ${CARD_HOVER} border-slate-800 bg-slate-900/70 p-4 text-[13px] text-slate-300`}
               >
                 <h3 className="mb-1 text-[13px] font-semibold text-slate-50">{item.title}</h3>
                 <p className="leading-relaxed">{item.body}</p>

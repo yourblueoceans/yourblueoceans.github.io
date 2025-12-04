@@ -1,4 +1,5 @@
 import React from "react";
+import { SECTION_CONTAINER, EYEBROW_TEXT } from "../constants/layout";
 
 const ContactSection: React.FC = () => {
   const handleEmail = () => {
@@ -8,9 +9,9 @@ const ContactSection: React.FC = () => {
   return (
     <section id="contact" className="relative overflow-hidden bg-slate-950">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.35),transparent_60%)]" />
-      <div className="relative mx-auto max-w-4xl px-6 py-24 sm:py-28 lg:px-8 lg:py-32">
+      <div className={`${SECTION_CONTAINER} relative max-w-4xl py-24 sm:py-28 lg:py-32`}>
         <div className="rounded-[32px] border border-white/10 bg-slate-950/80 px-8 py-12 text-center shadow-[0_35px_120px_rgba(15,23,42,0.8)]">
-          <p className="text-xs font-semibold tracking-[0.25em] text-violet-300">CONTACT</p>
+          <p className={EYEBROW_TEXT}>CONTACT</p>
           <h2 className="mt-4 text-2xl font-semibold text-slate-50 sm:text-3xl">
             웹 취약점 진단·클라우드 보안 PoC에 대해 이야기 나누고 싶으시다면
           </h2>

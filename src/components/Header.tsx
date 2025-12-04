@@ -10,12 +10,35 @@ const navItems = [
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("about");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px" }
+    );
+
+    const observed = navItems
+      .map((item) => document.getElementById(item.target))
+      .filter(Boolean) as Element[];
+
+    observed.forEach((node) => observer.observe(node));
+    return () => {
+      observed.forEach((node) => observer.unobserve(node));
+    };
   }, []);
 
   const handleNavigate = (target: string) => {
@@ -27,8 +50,8 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 border-b border-white/10 transition ${
-        scrolled ? "bg-slate-950/90 py-3 shadow-[0_12px_40px_rgba(2,6,23,0.65)] backdrop-blur-xl" : "bg-transparent py-5"
+      className={`fixed inset-x-0 top-0 z-40 border-b border-slate-800/70 transition ${
+        scrolled ? "bg-slate-950/85 py-3 shadow-[0_20px_70px_rgba(2,6,23,0.75)] backdrop-blur-2xl" : "bg-slate-950/60 py-4 backdrop-blur-xl"
       }`}
     >
       <div className="mx-auto hidden max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:flex">
@@ -47,21 +70,31 @@ const Header: React.FC = () => {
         </button>
 
         <nav className="flex items-center gap-6 text-sm text-slate-300">
-          {navItems.map((item) => (
-            <button
-              key={item.target}
-              type="button"
-              onClick={() => handleNavigate(item.target)}
-              className="text-[0.95rem] font-medium text-slate-300 transition hover:text-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400"
-            >
-              {item.label}
-            </button>
-          ))}
+          {navItems.map((item) => {
+            const isActive = activeSection === item.target;
+            return (
+              <button
+                key={item.target}
+                type="button"
+                onClick={() => handleNavigate(item.target)}
+                className={`relative text-[0.95rem] font-medium transition ${
+                  isActive ? "text-violet-300" : "text-slate-300 hover:text-slate-50"
+                } focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400`}
+              >
+                {item.label}
+                <span
+                  className={`absolute inset-x-0 -bottom-1 h-0.5 rounded-full bg-gradient-to-r from-violet-500 via-sky-400 to-violet-500 transition-opacity ${
+                    isActive ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              </button>
+            );
+          })}
         </nav>
 
         <a
           href="mailto:bluetrees88@gmail.com?subject=Security%20Consulting%20Inquiry"
-          className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(76,29,149,0.45)] transition hover:from-violet-400 hover:to-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400"
+          className="inline-flex items-center justify-center rounded-full bg-violet-500/90 px-6 py-2.5 text-sm font-semibold text-white shadow-[0_15px_35px_rgba(139,92,246,0.5)] transition hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-400"
         >
           Contact
         </a>
@@ -84,7 +117,7 @@ const Header: React.FC = () => {
           </button>
           <a
             href="mailto:bluetrees88@gmail.com?subject=Security%20Consulting%20Inquiry"
-            className="rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 px-4 py-2 text-xs font-semibold text-white"
+            className="rounded-full bg-violet-500/90 px-4 py-2 text-xs font-semibold text-white shadow-[0_10px_25px_rgba(139,92,246,0.45)]"
           >
             Contact
           </a>

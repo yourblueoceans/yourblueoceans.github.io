@@ -1,5 +1,6 @@
 // src/components/ServicesSection.tsx
 import React from "react";
+import { CARD_HOVER, CARD_SURFACE, SECTION_CONTAINER, SECTION_SPACING, EYEBROW_TEXT } from "../constants/layout";
 
 type Service = {
   title: string;
@@ -43,10 +44,10 @@ const serviceIcons = ["🛡️", "☁️", "🌐", "🗂️"];
 
 const ServicesSection: React.FC = () => {
   return (
-    <section id="services" className="relative border-b border-slate-800/60 bg-slate-950">
-      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28 lg:px-8 lg:py-32">
+    <section id="services" className={SECTION_SPACING}>
+      <div className={`${SECTION_CONTAINER} py-24 sm:py-28 lg:py-32`}>
         <div className="mb-10 space-y-3">
-          <p className="text-xs font-semibold tracking-[0.25em] text-violet-300">WHAT I CAN DO</p>
+          <p className={EYEBROW_TEXT}>WHAT I CAN DO</p>
           <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">팀에서 맡길 수 있는 보안·클라우드 관련 역할들</h2>
           <p className="max-w-3xl text-sm text-slate-400">
             인턴·주니어로 합류했을 때 어떤 일을 맡길 수 있을지를 기준으로 정리했습니다. 서비스 관점의 역할 정의를 지향합니다.
@@ -57,7 +58,7 @@ const ServicesSection: React.FC = () => {
           {services.map((service, idx) => (
             <article
               key={service.title}
-              className="flex h-full flex-col gap-4 rounded-3xl border border-slate-700/70 bg-slate-900/80 p-6 opacity-0 shadow-[0_20px_60px_rgba(15,23,42,0.85)] transition hover:-translate-y-1 hover:border-violet-500/70 animate-rise"
+              className={`flex h-full flex-col gap-4 ${CARD_SURFACE} ${CARD_HOVER} border-slate-700/70 p-6 opacity-0 animate-rise`}
               style={{ animationDelay: `${idx * 0.1}s` }}
             >
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-800/80 text-xl">{serviceIcons[idx]}</div>

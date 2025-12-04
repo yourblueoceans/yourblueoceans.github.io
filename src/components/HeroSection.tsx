@@ -30,7 +30,7 @@ const HeroSection: React.FC = () => {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(124,58,237,0.45),transparent_45%),radial-gradient(circle_at_80%_0%,rgba(56,189,248,0.3),transparent_45%),radial-gradient(circle_at_50%_100%,rgba(8,47,73,0.6),transparent_55%)]"
       />
 
-      <div className="relative mx-auto flex min-h-[70vh] max-w-6xl flex-col gap-12 px-6 pb-24 pt-32 sm:px-8 lg:flex-row lg:items-center">
+      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col gap-12 px-6 pb-24 pt-32 sm:px-8 lg:flex-row lg:items-center">
         <div className="flex-1 space-y-8">
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/70 px-4 py-1 text-xs text-slate-300 shadow-sm backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -40,8 +40,11 @@ const HeroSection: React.FC = () => {
 
           <div className="space-y-5">
             <h1 className="max-w-3xl text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl lg:text-5xl">
-              클라우드 보안 · 웹 취약점 진단에 강한
-              <span className="block text-violet-200">보안컨설턴트 지망생, 서상원입니다.</span>
+              <span className="text-transparent bg-gradient-to-r from-violet-300 to-indigo-300 bg-clip-text">
+                클라우드 보안 · 웹 취약점 진단
+              </span>
+              에 강한
+              <span className="block text-violet-100">보안컨설턴트 지망생, 서상원입니다.</span>
             </h1>
             <p className="text-sm font-medium text-slate-400 sm:text-base">
               Aspiring Security Consultant &amp; Cloud Security Engineer based in Korea.
@@ -83,10 +86,11 @@ const HeroSection: React.FC = () => {
               </span>
             </button>
           </div>
+          <p className="text-[11px] text-slate-500">* English resume available on request.</p>
         </div>
 
         <div className="flex w-full justify-center lg:w-[360px]">
-          <div className="relative w-full max-w-sm rounded-[32px] border border-white/10 bg-slate-950/90 p-6 shadow-[0_24px_80px_rgba(15,23,42,0.95)] backdrop-blur">
+          <div className="relative w-full max-w-sm rounded-[32px] border border-white/10 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-6 shadow-[0_24px_80px_rgba(15,23,42,0.95)] backdrop-blur animate-float-slow">
             <div className="pointer-events-none absolute -left-8 top-8 h-32 w-32 rounded-full bg-violet-500/40 blur-3xl" />
             <div className="pointer-events-none absolute -right-6 bottom-10 h-28 w-28 rounded-full bg-sky-400/40 blur-3xl" />
 
@@ -129,6 +133,17 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <button
+        type="button"
+        onClick={scrollToCaseStudies}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-400 transition hover:text-white"
+        aria-label="Scroll to case studies"
+      >
+        <span className="inline-flex animate-bounce-slow items-center justify-center rounded-full border border-white/20 px-4 py-2 text-sm">
+          ↓
+        </span>
+      </button>
     </section>
   );
 };

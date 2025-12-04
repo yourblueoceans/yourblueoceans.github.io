@@ -1,4 +1,5 @@
 import React from "react";
+import { SECTION_CONTAINER, SECTION_SPACING, EYEBROW_TEXT, CARD_SURFACE } from "../constants/layout";
 
 const experience = [
   {
@@ -28,13 +29,13 @@ const certs = [
 
 const ExperienceSection: React.FC = () => {
   return (
-    <section id="experience" className="relative border-b border-slate-800/60 bg-slate-950">
-      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-28 lg:px-8 lg:py-32">
+    <section id="experience" className={SECTION_SPACING}>
+      <div className={`${SECTION_CONTAINER} py-24 sm:py-28 lg:py-32`}>
         <div className="grid gap-10 lg:grid-cols-[3fr,2fr]">
           {/* LEFT: Experience Timeline */}
           <div className="space-y-5">
             <div className="space-y-3">
-              <p className="text-xs font-semibold tracking-[0.25em] text-violet-300">EXPERIENCE</p>
+              <p className={EYEBROW_TEXT}>EXPERIENCE</p>
               <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">경험과 학습 경로</h2>
               <p className="max-w-xl text-sm text-slate-400">
                 보안 지식뿐 아니라, 현장 운영·고객 경험·해외 생활을 통해 쌓은 역량을 함께 가져가고자 합니다.
@@ -55,7 +56,7 @@ const ExperienceSection: React.FC = () => {
           {/* RIGHT: Certs & Awards */}
           <div className="space-y-5">
             <div className="space-y-3">
-              <p className="text-xs font-semibold tracking-[0.25em] text-violet-300">CERTIFICATIONS</p>
+              <p className={EYEBROW_TEXT}>CERTIFICATIONS</p>
               <h3 className="text-lg font-semibold text-slate-50">자격증</h3>
               <p className="text-sm text-slate-400">보안·네트워크·IT 인프라 기반을 다지기 위해 준비하거나 취득한 자격들입니다.</p>
             </div>
@@ -67,15 +68,13 @@ const ExperienceSection: React.FC = () => {
               ))}
             </div>
             <div className="space-y-2 pt-4">
-              <p className="text-xs font-semibold tracking-[0.25em] text-violet-300">HIGHLIGHTS</p>
-              <div className="rounded-3xl bg-gradient-to-r from-violet-500/40 via-indigo-500/30 to-transparent p-[1px] shadow-[0_20px_60px_rgba(88,28,135,0.35)]">
-                <div className="rounded-[inherit] border border-slate-800 bg-slate-900/80 p-4 text-[13px] text-slate-300">
-                  <p>
-                    <span className="font-semibold text-slate-50">2025 캡스톤 디자인 대회 2위 – Lockument</span>
-                    <br />
-                    PII 정보 마스킹 및 암호화 클라우드 웹서비스로, 심사위원들로부터 “실제 기업 솔루션 같다”는 평가를 받았습니다.
-                  </p>
-                </div>
+              <p className={EYEBROW_TEXT}>HIGHLIGHTS</p>
+              <div className={`${CARD_SURFACE} border-white/10 bg-slate-900/80 p-4 text-[13px] text-slate-300`}>
+                <p>
+                  <span className="font-semibold text-slate-50">2025 캡스톤 디자인 대회 2위 – Lockument</span>
+                  <br />
+                  PII 정보 마스킹 및 암호화 클라우드 웹서비스로, 심사위원들로부터 “실제 기업 솔루션 같다”는 평가를 받았습니다.
+                </p>
               </div>
             </div>
           </div>
