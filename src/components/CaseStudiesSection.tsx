@@ -52,43 +52,40 @@ const CaseStudiesSection: React.FC = () => {
   return (
     <section id="case-studies" className="border-b border-slate-800/60 bg-slate-950">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-16 sm:py-20">
-        {/* 헤더 */}
         <div className="space-y-3">
-          <p className="text-xs font-semibold tracking-[0.2em] text-violet-300">
-            CASE STUDIES
-          </p>
-          <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
-            보안 컨설팅을 목표로 한 대표 프로젝트 3선
-          </h2>
-          <p className="max-w-2xl text-sm text-slate-400">
-            단순 과제 수준이 아닌, 실제 보안 컨설팅·운영 환경을 가정해 설계·구현한 프로젝트들입니다. 각 프로젝트는 문제
-            정의, 접근 방법, 결과와 배운 점까지 Case Study 형태로 정리했습니다.
+          <p className="text-xs font-semibold tracking-[0.2em] text-violet-300">CASE STUDIES</p>
+          <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">보안 컨설팅을 목표로 한 대표 프로젝트 3선</h2>
+          <p className="max-w-3xl text-sm text-slate-400">
+            실제 보안 컨설팅 환경을 가정한 프로젝트들로, 문제 정의부터 접근 방법, 결과와 배운 점까지 Case Study 포맷으로 정리했습니다.
           </p>
         </div>
 
-        {/* 카드 그리드 */}
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {caseStudies.map((item) => (
+          {caseStudies.map((item, idx) => (
             <article
               key={item.id}
-              className="flex h-full flex-col rounded-3xl border border-slate-800 bg-slate-900/70 p-5 shadow-[0_18px_50px_rgba(15,23,42,0.75)] transition hover:-translate-y-1 hover:border-violet-500/80 hover:bg-slate-900/90 hover:shadow-[0_28px_80px_rgba(15,23,42,0.95)]"
+              className={`group rounded-3xl bg-gradient-to-br from-violet-500/40 via-slate-900 to-transparent p-[1px] ${
+                idx === 0 ? "shadow-[0_28px_90px_rgba(88,28,135,0.45)]" : "shadow-[0_20px_70px_rgba(15,23,42,0.9)]"
+              } transition`}
             >
-              <div className="mb-3 inline-flex items-center rounded-full border border-slate-700 bg-slate-950/70 px-2.5 py-1 text-[11px] text-slate-300">
-                {item.category}
-              </div>
-              <h3 className="text-sm font-semibold text-slate-50 sm:text-[15px]">{item.title}</h3>
-              <p className="mt-1 text-[12px] text-slate-400">{item.subtitle}</p>
-              <p className="mt-4 flex-1 text-[13px] leading-relaxed text-slate-300">{item.summary}</p>
-              <p className="mt-3 text-[12px] font-medium text-emerald-300">{item.impact}</p>
-              <div className="mt-4 space-y-2 text-[11px] text-slate-300">
-                <p>
-                  <span className="font-semibold text-slate-400">Role. </span>
-                  {item.role}
-                </p>
-                <p>
-                  <span className="font-semibold text-slate-400">Tech. </span>
-                  {item.techStack.join(" · ")}
-                </p>
+              <div className="flex h-full flex-col rounded-[inherit] border border-slate-800 bg-slate-950/90 p-6 backdrop-blur">
+                <div className="mb-3 inline-flex items-center rounded-full border border-slate-700 bg-slate-900/80 px-3 py-1 text-[11px] text-slate-300">
+                  {item.category}
+                </div>
+                <h3 className="text-base font-semibold text-slate-50">{item.title}</h3>
+                <p className="text-[12px] text-slate-400">{item.subtitle}</p>
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-slate-300">{item.summary}</p>
+                <p className="mt-3 text-xs font-semibold text-emerald-300">{item.impact}</p>
+                <div className="mt-4 space-y-2 text-xs text-slate-300">
+                  <p>
+                    <span className="font-semibold text-slate-400">Role. </span>
+                    {item.role}
+                  </p>
+                  <p>
+                    <span className="font-semibold text-slate-400">Tech. </span>
+                    {item.techStack.join(" · ")}
+                  </p>
+                </div>
               </div>
             </article>
           ))}

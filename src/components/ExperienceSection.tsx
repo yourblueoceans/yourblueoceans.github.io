@@ -68,12 +68,14 @@ const ExperienceSection: React.FC = () => {
             </div>
             <div className="space-y-2 pt-4">
               <p className="text-xs font-semibold tracking-[0.25em] text-violet-300">HIGHLIGHTS</p>
-              <div className="space-y-2 rounded-3xl border border-slate-800 bg-slate-900/70 p-4 text-[13px] text-slate-300">
-                <p>
-                  <span className="font-semibold text-slate-50">2025 캡스톤 디자인 대회 2위 – Lockument</span>
-                  <br />
-                  PII 정보 마스킹 및 암호화 클라우드 웹서비스로, 심사위원들로부터 “실제 기업 솔루션 같다”는 평가를 받았습니다.
-                </p>
+              <div className="rounded-3xl bg-gradient-to-r from-violet-500/40 via-indigo-500/30 to-transparent p-[1px] shadow-[0_20px_60px_rgba(88,28,135,0.35)]">
+                <div className="rounded-[inherit] border border-slate-800 bg-slate-900/80 p-4 text-[13px] text-slate-300">
+                  <p>
+                    <span className="font-semibold text-slate-50">2025 캡스톤 디자인 대회 2위 – Lockument</span>
+                    <br />
+                    PII 정보 마스킹 및 암호화 클라우드 웹서비스로, 심사위원들로부터 “실제 기업 솔루션 같다”는 평가를 받았습니다.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

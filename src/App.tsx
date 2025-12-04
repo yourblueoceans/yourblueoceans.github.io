@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import CaseStudiesSection from "./components/CaseStudiesSection";
 import ServicesSection from "./components/ServicesSection";
@@ -9,9 +10,8 @@ import ContactSection from "./components/ContactSection";
 const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 antialiased">
-      {/* 상단 네비게이션(이미 따로 있다면 여기에 포함하면 됨) */}
-      {/* <Header /> */}
-      <main>
+      <Header />
+      <main className="pt-24">
         <HeroSection />
         <CaseStudiesSection />
         <ServicesSection />
