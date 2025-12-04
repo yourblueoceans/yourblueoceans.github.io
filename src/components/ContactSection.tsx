@@ -1,66 +1,42 @@
 import React from "react";
-import SectionWrapper from "./SectionWrapper";
-import { copy } from "../copy";
-import type { RichParagraph } from "../copy";
-
-const renderParagraph = (segments: RichParagraph, paragraphIndex: number) => (
-  <p key={`contact-paragraph-${paragraphIndex}`}>
-    {segments.map((segment, segmentIndex) =>
-      segment.highlight ? (
-        <span key={`contact-paragraph-${paragraphIndex}-segment-${segmentIndex}`} className="font-medium text-slate-100">
-          {segment.text}
-        </span>
-      ) : (
-        <React.Fragment key={`contact-paragraph-${paragraphIndex}-segment-${segmentIndex}`}>
-          {segment.text}
-        </React.Fragment>
-      )
-    )}
-  </p>
-);
 
 const ContactSection: React.FC = () => {
-  const contactCopy = copy.contact;
+  const handleEmail = () => {
+    window.location.href = "mailto:bluetrees88@gmail.com?subject=Contact%20from%20portfolio";
+  };
 
   return (
-    <SectionWrapper
-      id="contact"
-      eyebrow={contactCopy.eyebrow}
-      title={contactCopy.title}
-      subtitle={contactCopy.subtitle}
-      align="center"
-    >
-      <div className="mx-auto w-full max-w-3xl rounded-3xl border border-white/10 bg-white/[0.015] p-8 text-center">
-        <div className="space-y-4 text-sm text-slate-300 sm:text-base">
-          {contactCopy.paragraphs.map((paragraph, index) => (
-            <div key={`contact-paragraph-wrapper-${index}`} className="leading-relaxed">
-              {renderParagraph(paragraph, index)}
-            </div>
-          ))}
-
-          <div className="space-y-3">
-            <a
-              href={`mailto:${contactCopy.email}`}
-              className="inline-flex w-full max-w-sm items-center justify-center rounded-full border border-white/20 px-8 py-3 text-sm font-semibold text-white transition hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
+    <section id="contact" className="bg-slate-950">
+      <div className="mx-auto max-w-4xl px-6 py-16 sm:py-20">
+        <div className="space-y-4 text-center">
+          <p className="text-xs font-semibold tracking-[0.25em] text-violet-300">CONTACT</p>
+          <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
+            웹 취약점 진단·클라우드 보안 PoC에 대해 이야기 나누고 싶으시다면
+          </h2>
+          <p className="text-sm text-slate-400">
+            인턴·주니어 포지션, 프로젝트 협업, 보안 컨설팅/영업 관련 논의 등 언제든지 편하게 연락 주시면 감사하겠습니다.
+          </p>
+          <div className="mt-4 flex flex-wrap justify-center gap-3">
+            <button
+              type="button"
+              onClick={handleEmail}
+              className="inline-flex items-center justify-center rounded-full bg-violet-500 px-6 py-2.5 text-sm font-medium text-white shadow-md transition hover:bg-violet-400 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             >
-              {contactCopy.email}
+              이메일 보내기
+            </button>
+            <a
+              href="https://github.com/yourblueoceans"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-900/70 px-6 py-2.5 text-sm font-medium text-slate-100 hover:bg-slate-800/90"
+            >
+              GitHub 보기
             </a>
-            <p className="text-xs text-slate-500">
-              GitHub:
-              {" "}
-              <a
-                href="https://github.com/yourblueoceans"
-                className="text-slate-200 underline-offset-2 hover:underline"
-                target="_blank"
-                rel="noreferrer"
-              >
-                github.com/yourblueoceans
-              </a>
-            </p>
           </div>
+          <p className="pt-4 text-[11px] text-slate-500">© {new Date().getFullYear()} Sangwon Seo. All rights reserved.</p>
         </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 };
 
