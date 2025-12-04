@@ -14,6 +14,10 @@ const config = {
           violet: "#8b5cf6",
           indigo: "#6366f1",
         },
+        copy: {
+          base: "rgba(226,232,240,0.85)",
+          muted: "rgba(148,163,184,0.75)",
+        },
       },
       boxShadow: {
         panel: "0 30px 90px rgba(3,7,18,0.55)",
@@ -22,6 +26,11 @@ const config = {
       backgroundImage: {
         "canvas-gradient":
           "radial-gradient(circle at top, rgba(99,102,241,0.22), transparent 45%), radial-gradient(circle at 20% 20%, rgba(14,165,233,0.15), transparent 40%)",
+        "grid-faint":
+          "linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.08) 1px, transparent 1px)",
+      },
+      maxWidth: {
+        content: "72rem",
       },
       spacing: {
         18: "4.5rem",
@@ -32,6 +41,10 @@ const config = {
       },
       fontSize: {
         hero: "clamp(2.5rem, 5vw, 4rem)",
+        eyebrow: "0.75rem",
+      },
+      letterSpacing: {
+        eyebrow: "0.35em",
       },
     },
     fontFamily: {

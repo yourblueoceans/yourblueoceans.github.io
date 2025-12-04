@@ -29,28 +29,22 @@ const AboutSection: React.FC = () => {
       title={aboutCopy.title}
       subtitle={aboutCopy.subtitle}
     >
-      <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="space-y-6 text-base leading-relaxed text-slate-300">
+      <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="space-y-5 text-base leading-relaxed text-copy-base">
           {aboutCopy.paragraphs.map((paragraph, index) => (
-            <div
-              key={`about-paragraph-${index}`}
-              className="rounded-3xl border border-white/10 bg-white/[0.015] p-5 sm:p-6"
-            >
+            <div key={`about-paragraph-${index}`} className="space-y-2">
               {renderParagraph(paragraph, index)}
             </div>
           ))}
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 rounded-3xl border border-white/10 bg-white/[0.01] p-5 sm:grid-cols-2">
             {[
               { label: "Background", value: "경영학 · 대한항공 · 해외 경험" },
               { label: "Focus", value: "클라우드 보안 · VAPT · 인프라" },
               { label: "Goal", value: "고객 환경을 이해하는 보안컨설턴트" },
               { label: "Working style", value: "요구사항 → 설계 → 진단 → 보고" },
             ].map((item) => (
-              <div
-                key={item.label}
-                className="rounded-3xl border border-white/10 bg-white/[0.015] p-5"
-              >
+              <div key={item.label} className="rounded-2xl border border-white/5 bg-white/[0.015] p-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">
                   {item.label}
                 </p>

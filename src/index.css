@@ -20,10 +20,20 @@
   }
 
   body {
-    @apply m-0 min-h-screen bg-slate-950 font-sans text-slate-100 antialiased;
-    background-color: #040619;
+    @apply m-0 min-h-screen bg-canvas font-sans text-slate-100 antialiased;
     background-image: radial-gradient(circle at top, rgba(99, 102, 241, 0.18), transparent 45%),
       radial-gradient(circle at 15% 20%, rgba(14, 165, 233, 0.12), transparent 40%);
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.35;
+    background-image: linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 160px 160px;
   }
 
   #root {
@@ -49,5 +59,11 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .eyebrow {
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
   }
 }
