@@ -8,6 +8,20 @@ const badgeClassMap: Record<string, string> = {
   slate: "bg-slate-500/10 text-slate-200 border-slate-500/40",
 };
 
+type ExperienceGroupProps = {
+  heading: string;
+  children: React.ReactNode;
+};
+
+const ExperienceGroup: React.FC<ExperienceGroupProps> = ({ heading, children }) => (
+  <section className="space-y-4">
+    <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">
+      {heading}
+    </p>
+    {children}
+  </section>
+);
+
 const ExperienceSection: React.FC = () => {
   const {
     eyebrow,
@@ -21,98 +35,90 @@ const ExperienceSection: React.FC = () => {
   } = copy.experience;
 
   return (
-    <SectionWrapper id="experience" eyebrow={eyebrow} title={title} subtitle={subtitle}>
-      <div className="grid gap-8 md:grid-cols-2">
-        <div className="space-y-6 text-sm text-slate-300">
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-100">
-              {experience.heading}
-            </h3>
-            <div className="mt-3 space-y-3">
-              {experience.items.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-2xl border border-slate-700/70 bg-slate-900/80 px-4 py-3"
-                >
-                  <p className="text-xs font-medium uppercase tracking-wide text-violet-300">
-                    {item.eyebrow}
-                  </p>
-                  <p className="text-sm font-semibold text-slate-50">{item.title}</p>
-                  <p className="mt-1 text-[11px] text-slate-400">{item.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+    <SectionWrapper
+      id="experience"
+      eyebrow={eyebrow}
+      title={title}
+      subtitle={subtitle}
+    >
+      <div className="grid gap-10 lg:grid-cols-2">
+        <div className="space-y-8 text-sm text-slate-300">
+          <ExperienceGroup heading={experience.heading}>
+            {experience.items.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-3xl border border-white/10 bg-white/[0.02] p-5 sm:p-6"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">
+                  {item.eyebrow}
+                </p>
+                <p className="mt-2 text-lg font-semibold text-white">{item.title}</p>
+                <p className="mt-1 text-sm leading-relaxed text-slate-300">{item.body}</p>
+              </article>
+            ))}
+          </ExperienceGroup>
 
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-100">
-              {education.heading}
-            </h3>
-            <div className="mt-3 space-y-3">
-              {education.items.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-2xl border border-slate-700/70 bg-slate-900/80 px-4 py-3"
-                >
-                  <p className="text-xs font-medium uppercase tracking-wide text-violet-300">
-                    {item.eyebrow}
-                  </p>
-                  <p className="text-sm font-semibold text-slate-50">{item.title}</p>
-                  <p className="mt-1 text-[11px] text-slate-400">{item.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <ExperienceGroup heading={education.heading}>
+            {education.items.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-3xl border border-white/10 bg-white/[0.02] p-5 sm:p-6"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">
+                  {item.eyebrow}
+                </p>
+                <p className="mt-2 text-lg font-semibold text-white">{item.title}</p>
+                <p className="mt-1 text-sm leading-relaxed text-slate-300">{item.body}</p>
+              </article>
+            ))}
+          </ExperienceGroup>
 
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-100">
-              {awards.heading}
-            </h3>
-            <ul className="mt-3 space-y-1.5 text-[11px] text-slate-400">
+          <ExperienceGroup heading={awards.heading}>
+            <ul className="space-y-2 rounded-3xl border border-white/10 bg-white/[0.015] p-5 text-sm text-slate-300">
               {awards.items.map((award) => (
-                <li key={award}>· {award}</li>
+                <li key={award} className="flex items-start gap-3">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white/70" />
+                  {award}
+                </li>
               ))}
             </ul>
-          </div>
+          </ExperienceGroup>
         </div>
 
-        <div className="space-y-6 text-sm text-slate-300">
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-100">
-              {certifications.heading}
-            </h3>
-            <div className="mt-3 grid gap-3">
+        <div className="space-y-8 text-sm text-slate-300">
+          <ExperienceGroup heading={certifications.heading}>
+            <div className="grid gap-4">
               {certifications.items.map((cert) => (
-                <div
+                <article
                   key={cert.name}
-                  className="flex items-center justify-between rounded-2xl border border-slate-700/70 bg-slate-900/80 px-4 py-3"
+                  className="flex items-center justify-between rounded-3xl border border-white/10 bg-white/[0.02] p-5 sm:p-6"
                 >
                   <div>
-                    <p className="text-sm font-semibold text-slate-50">{cert.name}</p>
-                    <p className="text-[11px] text-slate-400">{cert.detail}</p>
+                    <p className="text-base font-semibold text-white">{cert.name}</p>
+                    <p className="text-xs text-slate-400">{cert.detail}</p>
                   </div>
                   {cert.badge && (
                     <span
-                      className={`text-[11px] rounded-full border px-2 py-1 ${badgeClassMap[cert.accent ?? "emerald"] ?? "border-slate-600 text-slate-300"}`}
+                      className={`rounded-full border px-3 py-1 text-xs ${badgeClassMap[cert.accent ?? "emerald"] ?? "border-slate-600 text-slate-300"}`}
                     >
                       {cert.badge}
                     </span>
                   )}
-                </div>
+                </article>
               ))}
             </div>
-          </div>
+          </ExperienceGroup>
 
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-100">
-              {additionalQualifications.heading}
-            </h3>
-            <ul className="mt-3 space-y-1.5 text-[11px] text-slate-400">
+          <ExperienceGroup heading={additionalQualifications.heading}>
+            <ul className="space-y-2 rounded-3xl border border-white/10 bg-white/[0.015] p-5 text-sm text-slate-200">
               {additionalQualifications.items.map((item) => (
-                <li key={item}>· {item}</li>
+                <li key={item} className="flex items-center gap-3">
+                  <span className="h-1.5 w-1.5 rounded-full bg-violet-300" />
+                  {item}
+                </li>
               ))}
             </ul>
-          </div>
+          </ExperienceGroup>
         </div>
       </div>
     </SectionWrapper>

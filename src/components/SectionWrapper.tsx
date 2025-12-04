@@ -6,6 +6,9 @@ type SectionWrapperProps = {
   title?: string;
   subtitle?: string;
   align?: "left" | "center";
+  variant?: "default" | "panel" | "subtle";
+  className?: string;
+  contentClassName?: string;
   children: React.ReactNode;
 };
 
@@ -15,6 +18,9 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({
   title,
   subtitle,
   align = "left",
+  variant = "default",
+  className = "",
+  contentClassName = "",
   children,
 }) => {
   const headingId = title && id ? `${id}-title` : undefined;
@@ -22,45 +28,51 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({
     align === "center" ? "text-center items-center" : "text-left";
   const subtitleMaxWidth = align === "center" ? "sm:mx-auto" : "";
 
+  const variantSurface: Record<NonNullable<typeof variant>, string> = {
+    default: "",
+    panel:
+      "rounded-3xl border border-white/10 bg-white/[0.02] px-6 py-8 sm:px-10 sm:py-10",
+    subtle:
+      "rounded-3xl border border-white/10 bg-white/[0.01] px-6 py-8 sm:px-8 sm:py-10",
+  };
+
   return (
     <section
       id={id}
       aria-labelledby={headingId}
-      className="relative bg-slate-950 py-16 text-slate-50 sm:py-20"
+      className={`relative border-t border-white/5 py-16 text-slate-50 first:border-t-0 sm:py-20 ${className}`}
     >
-      <div
-        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-700/60 to-transparent"
-        aria-hidden="true"
-      />
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 sm:px-8 xl:px-0">
-        {(eyebrow || title || subtitle) && (
-          <header
-            className={`flex flex-col gap-3 ${headerAlignment}`}
-          >
-            {eyebrow && (
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-violet-300">
-                {eyebrow}
-              </p>
-            )}
-            {title && (
-              <h2
-                id={headingId}
-                className="text-2xl font-semibold text-slate-50 sm:text-3xl"
-              >
-                {title}
-              </h2>
-            )}
-            {subtitle && (
-              <p
-                className={`text-sm leading-relaxed text-slate-300 sm:text-base sm:max-w-2xl ${subtitleMaxWidth}`}
-              >
-                {subtitle}
-              </p>
-            )}
-          </header>
-        )}
+      <div className="mx-auto w-full max-w-6xl px-6 sm:px-8">
+        <div
+          className={`flex flex-col gap-10 ${variantSurface[variant]} ${contentClassName}`}
+        >
+          {(eyebrow || title || subtitle) && (
+            <header className={`flex flex-col gap-3 ${headerAlignment}`}>
+              {eyebrow && (
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">
+                  {eyebrow}
+                </p>
+              )}
+              {title && (
+                <h2
+                  id={headingId}
+                  className="text-3xl font-semibold text-white sm:text-4xl"
+                >
+                  {title}
+                </h2>
+              )}
+              {subtitle && (
+                <p
+                  className={`max-w-3xl text-base leading-relaxed text-slate-300 ${subtitleMaxWidth}`}
+                >
+                  {subtitle}
+                </p>
+              )}
+            </header>
+          )}
 
-        {children}
+          {children}
+        </div>
       </div>
     </section>
   );

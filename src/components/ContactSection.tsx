@@ -30,29 +30,34 @@ const ContactSection: React.FC = () => {
       subtitle={contactCopy.subtitle}
       align="center"
     >
-      <div className="mx-auto w-full max-w-3xl space-y-6 text-center text-sm text-slate-300 sm:text-base">
-        {contactCopy.paragraphs.map((paragraph, index) => (
-          <div key={`contact-paragraph-wrapper-${index}`} className="leading-relaxed">
-            {renderParagraph(paragraph, index)}
-          </div>
-        ))}
+      <div className="mx-auto w-full max-w-3xl rounded-3xl border border-white/10 bg-white/[0.015] p-8 text-center">
+        <div className="space-y-4 text-sm text-slate-300 sm:text-base">
+          {contactCopy.paragraphs.map((paragraph, index) => (
+            <div key={`contact-paragraph-wrapper-${index}`} className="leading-relaxed">
+              {renderParagraph(paragraph, index)}
+            </div>
+          ))}
 
-        <div className="space-y-2">
-          <p className="text-sm font-semibold uppercase tracking-wide text-slate-100">
-            Contact
-          </p>
-          <p>
-            이메일:{" "}
+          <div className="space-y-3">
             <a
               href={`mailto:${contactCopy.email}`}
-              className="text-violet-300 transition hover:text-violet-200"
+              className="inline-flex w-full max-w-sm items-center justify-center rounded-full border border-white/20 px-8 py-3 text-sm font-semibold text-white transition hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/70"
             >
               {contactCopy.email}
             </a>
-          </p>
-          <p className="text-xs text-slate-500">
-            GitHub / LinkedIn / Notion 링크는 추후 업데이트 예정입니다.
-          </p>
+            <p className="text-xs text-slate-500">
+              GitHub:
+              {" "}
+              <a
+                href="https://github.com/yourblueoceans"
+                className="text-slate-200 underline-offset-2 hover:underline"
+                target="_blank"
+                rel="noreferrer"
+              >
+                github.com/yourblueoceans
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </SectionWrapper>
