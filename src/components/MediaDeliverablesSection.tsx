@@ -60,7 +60,7 @@ const MediaDeliverablesSection: React.FC = () => (
 
       <div className="deliverables-grid">
         {projects.map((project) => (
-          <article key={project.id} className={cardClass}>
+          <article key={project.id} className={`${cardClass} h-full`}>
             <div className="h-44 w-full rounded-2xl bg-white/60 shadow-inner" />
             <div className="mt-5 space-y-4">
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-500">{project.category}</div>

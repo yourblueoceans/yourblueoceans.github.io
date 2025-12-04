@@ -1,4 +1,5 @@
 import React from "react";
+import { Briefcase, FileLock, Server, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import { bodyText, cardClass, heading2, innerClass, overline, pillClass, sectionClass, sectionMotion } from "../ui/tokens";
 
@@ -50,7 +51,7 @@ const services: Service[] = [
   },
 ];
 
-const serviceIcons = ["🛡️", "☁️", "🌐", "📊"];
+const serviceIcons = [ShieldCheck, FileLock, Server, Briefcase];
 
 const WhatICanDoSection: React.FC = () => {
   return (
@@ -63,9 +64,13 @@ const WhatICanDoSection: React.FC = () => {
         </div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {services.map((service, idx) => (
-            <article key={service.title} className={`${cardClass} flex h-full flex-col gap-4`}>
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-900/10 text-2xl">{serviceIcons[idx]}</div>
+          {services.map((service, idx) => {
+            const Icon = serviceIcons[idx] ?? ShieldCheck;
+            return (
+              <article key={service.title} className={`${cardClass} flex h-full flex-col gap-4`}>
+                <div className="role-icon" aria-hidden="true">
+                  <Icon className="role-icon-svg" />
+                </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-500">{service.subtitle}</p>
                 <h3 className="mt-2 text-[var(--fs-card-title)] font-semibold text-[var(--color-text-strong)]">{service.title}</h3>
@@ -91,7 +96,8 @@ const WhatICanDoSection: React.FC = () => {
                 </div>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </motion.section>

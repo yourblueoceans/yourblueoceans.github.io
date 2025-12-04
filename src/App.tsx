@@ -1,7 +1,6 @@
 import React from "react";
 import Topbar from "./components/Topbar";
 import HeroSection from "./components/HeroSection";
-import FeaturedCaseStudy from "./components/FeaturedCaseStudy";
 import CaseStudiesSection from "./components/CaseStudiesSection";
 import WhatICanDoSection from "./components/WhatICanDoSection";
 import MediaDeliverablesSection from "./components/MediaDeliverablesSection";
@@ -13,13 +12,12 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f5f6fc] text-slate-900 antialiased">
       <Topbar />
-      <main className="pt-28">
+      <main className="pt-0">
         <HeroSection />
-        <AboutSection />
-        <FeaturedCaseStudy />
         <CaseStudiesSection />
         <WhatICanDoSection />
         <MediaDeliverablesSection />
+        <AboutSection />
         <ExperienceSection />
         <ContactSection />
       </main>
