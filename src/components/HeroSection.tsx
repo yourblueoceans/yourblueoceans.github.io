@@ -22,15 +22,22 @@ const HeroSection: React.FC = () => (
     <div className="section-inner relative z-10">
       <div className="hero-grid">
         <div className="space-y-6">
-          <span className="hero-pill">서상원 (Sangwon Suh) · Security Consulting &amp; Cloud Security</span>
+          <span className="hero-pill">서상원 (Sangwon Suh) · Security Consulting &amp; Information Security</span>
           <h1 className="hero-title">
-            클라우드 보안 · 웹 취약점 진단에 강한 <strong>보안컨설턴트 지망생</strong>
+            클라우드 보안 · 웹 취약점 진단에 강한
+            <br />
+            주니어 정보보안 엔지니어,
+            <br />
+            보안컨설턴트를 지향하는 서상원
           </h1>
           <p className="hero-subtitle max-w-2xl">
-            Aspiring Security Consultant &amp; Cloud Security Engineer based in Korea. 대한항공 현장 운영과 해외 경험을 바탕으로 고객 환경을 이해하는 보안 설계를 추구합니다.
+            Junior Information Security Engineer focusing on Security Consulting, Web VAPT, and Cloud & Infra Security.
           </p>
           <p className="max-w-xl text-base leading-7 text-slate-200">
-            Lockument 캡스톤에서 PII 마스킹과 AES-GCM 암복호화를 설계·구현했고, Upload/XSS/CSRF 기반 Web VAPT 및 사내 네트워크 인프라 구축 프로젝트로 실제 컨설팅 워크플로우를 경험했습니다.
+            대한항공 현장 운영과 해외 경험을 바탕으로 실제 고객 환경을 이해하는 보안 설계와 컨설팅을 지향합니다.
+          </p>
+          <p className="max-w-xl text-base leading-7 text-slate-200">
+            Lockument 캡스톤에서 PII 마스킹과 AES-GCM 암·복호화 플로우를 설계했고, Upload/XSS/CSRF 기반 Web VAPT와 사내형 네트워크 인프라 구축 프로젝트를 통해 요구사항 정의–진단–리포트–발표에 이르는 컨설팅 워크플로우를 경험했습니다.
           </p>
           <div className="flex flex-wrap gap-2">
             {keywords.map((label) => (
