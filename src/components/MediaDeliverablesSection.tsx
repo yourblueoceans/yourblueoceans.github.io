@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { bodyText, cardClass, heading2, innerClass, overline, sectionClass, sectionMotion } from "../ui/tokens";
 
 type ProjectAsset = {
@@ -109,29 +109,38 @@ const MediaDeliverablesSection: React.FC = () => {
                     <p className="text-[0.75rem] font-semibold uppercase tracking-[0.35em] text-indigo-500">{project.category}</p>
                     <h3 className="text-2xl font-semibold text-slate-900">{project.title}</h3>
                     <p className="text-sm font-semibold text-indigo-600">{project.timeline}</p>
+                    <p className="mt-2 text-[0.95rem] leading-relaxed text-slate-600 line-clamp-2">{project.summary}</p>
                   </div>
                   <ChevronDown className={`stack-chevron ${isOpen ? "open" : ""}`} />
                 </button>
-                <p className={`${bodyText} mt-4 text-[0.98rem] leading-relaxed text-slate-700`}>{project.summary}</p>
-
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {project.assets.map((asset) => (
-                    <a key={asset.label} href={asset.href} target="_blank" rel="noreferrer" className="media-asset">
-                      <span>{asset.label}</span>
-                      <span className="media-asset-badge">{asset.badge}</span>
-                    </a>
-                  ))}
-                </div>
-
-                {isOpen && (
-                  <div className="mt-6 space-y-3 border-t border-slate-200 pt-4 text-[0.98rem] text-slate-700">
-                    {project.details.map((detail) => (
-                      <p key={detail.label}>
-                        <span className="font-semibold text-slate-900">{detail.label}</span> : {detail.value}
-                      </p>
-                    ))}
-                  </div>
-                )}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key={`${project.id}-content`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="mt-4 flex flex-wrap gap-3">
+                        {project.assets.map((asset) => (
+                          <a key={asset.label} href={asset.href} target="_blank" rel="noreferrer" className="media-asset">
+                            <span>{asset.label}</span>
+                            <span className="media-asset-badge">{asset.badge}</span>
+                          </a>
+                        ))}
+                      </div>
+                      <div className="mt-5 space-y-3 border-t border-slate-200 pt-4 text-[0.98rem] text-slate-700">
+                        {project.details.map((detail) => (
+                          <p key={detail.label}>
+                            <span className="font-semibold text-slate-900">{detail.label}</span> : {detail.value}
+                          </p>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </article>
             );
           })}
