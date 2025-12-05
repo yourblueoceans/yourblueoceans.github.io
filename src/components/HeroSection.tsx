@@ -32,7 +32,11 @@ const HeroSection: React.FC = () => (
             Security Consultant in training · Web VAPT · Cloud &amp; Infra Security · Security Solution PoC
           </p>
           <p className="hero-subtext hero-subtext-secondary">
-            Web VAPT, 클라우드 보안, 사내형 네트워크 인프라를 직접 설계·실습하며 고객 환경을 이해하는 주니어 정보보안 엔지니어입니다. SecureDoc Cloud, Drop the Port, 웹 취약점 분석 프로젝트를 통해 설계–테스트–리포트–발표까지 이어지는 컨설팅 워크플로우를 경험했습니다.
+            <span className="font-semibold text-white">Web VAPT</span>, <span className="font-semibold text-white">Cloud Security</span>,{" "}
+            <span className="font-semibold text-white">Network Infra Security</span>를 직접 설계·실습하며 고객 환경을 이해하는 주니어 정보보안 엔지니어입니다.
+          </p>
+          <p className="hero-subtext hero-subtext-secondary">
+            SecureDoc Cloud, Drop the Port, 웹 취약점 분석 프로젝트를 통해 설계–테스트–리포트–발표까지 이어지는 컨설팅 워크플로우를 경험했습니다.
           </p>
           <div className="hero-tags">
             {keywords.map((label) => (

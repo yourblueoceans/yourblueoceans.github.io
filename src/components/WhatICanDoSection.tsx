@@ -1,7 +1,7 @@
-import React from "react";
-import { Briefcase, FileLock, Server, ShieldCheck } from "lucide-react";
+import React, { useState } from "react";
+import { Briefcase, ChevronDown, FileLock, Server, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
-import { bodyText, cardClass, heading2, innerClass, overline, pillClass, sectionClass, sectionMotion } from "../ui/tokens";
+import { bodyText, heading2, innerClass, overline, pillClass, sectionClass, sectionMotion } from "../ui/tokens";
 
 type Service = {
   title: string;
@@ -27,7 +27,7 @@ const services: Service[] = [
     subtitle: "AWS KMS · AES-GCM · PII Masking",
     headline: "데이터 흐름에 맞춘 암복호화·키 관리와 PoC 구축",
     description:
-      "Lockument 프로젝트처럼 PII 마스킹, AES-GCM, AWS KMS를 결합해 개인정보 흐름을 안전하게 설계하고, Docker 기반 PoC 환경으로 검증합니다.",
+      "SecureDoc Cloud 프로젝트처럼 PII 마스킹, AES-GCM, AWS KMS를 결합해 개인정보 흐름을 안전하게 설계하고, Docker 기반 PoC 환경으로 검증합니다.",
     bullets: ["AWS KMS + AES-GCM 키 관리 플로우", "문서 포맷별 PII 정책 설계", "PoC 환경 구성 및 테스트 자동화"],
     tools: ["AWS KMS", "AES-GCM", "Docker"],
   },
@@ -54,48 +54,71 @@ const services: Service[] = [
 const serviceIcons = [ShieldCheck, FileLock, Server, Briefcase];
 
 const WhatICanDoSection: React.FC = () => {
+  const [expanded, setExpanded] = useState<number[]>([0]);
+
+  const toggleCard = (index: number) => {
+    setExpanded((prev) => (prev.includes(index) ? prev.filter((item) => item !== index) : [...prev, index]));
+  };
+
   return (
     <motion.section id="what-i-can-do" className={sectionClass} {...sectionMotion}>
       <div className={innerClass}>
-        <div>
+        <div className="max-w-3xl">
           <p className={overline}>WHAT I CAN DO</p>
-          <h2 className={heading2}>팀에서 맡길 수 있는 보안·클라우드 중심 역할</h2>
-          <p className="section-lead mt-3">인턴·주니어로 합류했을 때 어떤 일을 맡길 수 있을지를 기준으로 정리했습니다. 서비스 관점에서 역할을 정의합니다.</p>
+          <h2 className={`${heading2} text-4xl font-extrabold tracking-tight`}>팀에서 맡길 수 있는 보안·클라우드 중심 역할</h2>
+          <p className={`${bodyText} mt-3 text-[0.98rem] md:text-base lg:text-[1.05rem]`}>
+            인턴·주니어 포지션으로 합류했을 때 즉시 투입 가능한 역할을 기준으로 정리했습니다. 각 항목을 클릭하면 구체적인 역할, 절차, 활용 도구를 확인할 수 있습니다.
+          </p>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-12 space-y-5">
           {services.map((service, idx) => {
             const Icon = serviceIcons[idx] ?? ShieldCheck;
+            const isOpen = expanded.includes(idx);
             return (
-              <article key={service.title} className={`${cardClass} flex h-full flex-col gap-4`}>
-                <div className="role-icon w-10 h-10" aria-hidden="true">
-                  <Icon className="role-icon-svg" />
-                </div>
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-500">{service.subtitle}</p>
-                <h3 className="mt-2 text-[var(--fs-card-title)] font-semibold text-[var(--color-text-strong)]">{service.title}</h3>
-                <p className="mt-2 text-[var(--fs-body)] font-semibold text-indigo-700">{service.headline}</p>
-                <p className={`${bodyText} mt-2`}>{service.description}</p>
-              </div>
-              <ul className="space-y-3">
-                {service.bullets.map((bullet) => (
-                  <li key={bullet} className="flex gap-3 text-[var(--fs-body)] leading-relaxed">
-                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-500" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="space-y-2 text-[var(--fs-body)] leading-relaxed">
-                <p className="font-semibold text-[var(--color-text-strong)]">주요 툴/기술</p>
-                <div className="flex flex-wrap gap-2">
-                  {service.tools.map((tool) => (
-                    <span key={tool} className={pillClass}>
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </article>
+              <article key={service.title} className={`stack-card ${isOpen ? "open" : ""}`}>
+                <button
+                  type="button"
+                  className="stack-header"
+                  aria-expanded={isOpen}
+                  onClick={() => toggleCard(idx)}
+                >
+                  <div className="flex flex-1 flex-col gap-3 text-left sm:flex-row sm:items-center">
+                    <div className="role-icon w-10 h-10" aria-hidden="true">
+                      <Icon className="role-icon-svg" />
+                    </div>
+                    <div>
+                      <p className="text-[0.75rem] font-semibold uppercase tracking-[0.35em] text-indigo-500">{service.subtitle}</p>
+                      <h3 className="text-2xl font-semibold text-slate-900">{service.title}</h3>
+                      <p className="text-base font-medium text-indigo-700">{service.headline}</p>
+                    </div>
+                  </div>
+                  <ChevronDown className={`stack-chevron ${isOpen ? "open" : ""}`} />
+                </button>
+                {isOpen && (
+                  <div className="mt-5 space-y-5 pt-2">
+                    <p className={`${bodyText} text-[0.98rem] leading-relaxed text-slate-700`}>{service.description}</p>
+                    <ul className="space-y-3 text-[0.98rem] leading-relaxed text-slate-700">
+                      {service.bullets.map((bullet) => (
+                        <li key={bullet} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-500" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="space-y-2">
+                      <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">주요 툴 · 기술</p>
+                      <div className="flex flex-wrap gap-2">
+                        {service.tools.map((tool) => (
+                          <span key={tool} className={pillClass}>
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </article>
             );
           })}
         </div>
