@@ -1,17 +1,17 @@
 import React from "react";
 
-const keywords = ["Security Consultant in Training", "Web VAPT · Upload/XSS/CSRF", "Cloud & Infra Security", "Security Solution PoC & Pre-sales"];
+const keywords = ["Security Consultant in Training", "SecureDoc Cloud", "Drop the Port", "Web VAPT · Upload/XSS/CSRF"];
 
 const profileFacts = [
   { label: "Program", value: "폴리텍 대전 · 클라우드보안과" },
   { label: "Certs", value: "정보보안기사(필기) · CCST" },
-  { label: "Highlight", value: "2025 Lockument 캡스톤 2위" },
+  { label: "Highlight", value: "2025 SecureDoc Cloud 캡스톤 금상" },
 ];
 
 const profileMetrics = [
+  { value: "금상", label: "2025 캡스톤" },
   { value: "12+", label: "Deliverables" },
   { value: "3", label: "대표 프로젝트" },
-  { value: "2위", label: "2025 캡스톤" },
 ];
 
 const HeroSection: React.FC = () => (
@@ -24,18 +24,15 @@ const HeroSection: React.FC = () => (
         <div className="hero-text">
           <p className="hero-kicker">서상원 (Sangwon Suh) · Security Consulting &amp; Information Security</p>
           <h1 className="hero-heading">
-            클라우드 보안 · 웹 취약점 진단에 강한
+            클라우드 보안·웹 취약점 진단으로
             <br />
-            보안컨설턴트 지망생, 서상원
+            고객 환경을 지키는 보안컨설턴트 지망생, 서상원
           </h1>
           <p className="hero-subtext">
-            웹 VAPT, 클라우드 보안, 네트워크 인프라를 직접 설계·실습하며 고객 환경을 이해하는 주니어 정보보안 엔지니어를 지향합니다.
+            Security Consultant in training · Web VAPT · Cloud &amp; Infra Security · Security Solution PoC
           </p>
           <p className="hero-subtext hero-subtext-secondary">
-            Security Consultant in training · Web VAPT · Cloud Security · Network &amp; Infra Security · Security Solution PoC &amp; Pre-sales Collaboration.
-          </p>
-          <p className="hero-subtext hero-subtext-secondary">
-            Lockument 캡스톤에서 PII 마스킹과 AES-GCM 암·복호화 플로우를 설계했고, Upload/XSS/CSRF 기반 Web VAPT와 사내형 네트워크 인프라 구축 프로젝트를 통해 요구사항 정의–진단–리포트–발표에 이르는 컨설팅 워크플로우를 경험했습니다.
+            Web VAPT, 클라우드 보안, 사내형 네트워크 인프라를 직접 설계·실습하며 고객 환경을 이해하는 주니어 정보보안 엔지니어입니다. SecureDoc Cloud, Drop the Port, 웹 취약점 분석 프로젝트를 통해 설계–테스트–리포트–발표까지 이어지는 컨설팅 워크플로우를 경험했습니다.
           </p>
           <div className="hero-tags">
             {keywords.map((label) => (

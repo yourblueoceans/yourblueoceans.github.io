@@ -68,7 +68,7 @@ const WhatICanDoSection: React.FC = () => {
             const Icon = serviceIcons[idx] ?? ShieldCheck;
             return (
               <article key={service.title} className={`${cardClass} flex h-full flex-col gap-4`}>
-                <div className="role-icon" aria-hidden="true">
+                <div className="role-icon w-10 h-10" aria-hidden="true">
                   <Icon className="role-icon-svg" />
                 </div>
               <div>

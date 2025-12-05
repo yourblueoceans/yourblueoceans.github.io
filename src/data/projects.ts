@@ -13,18 +13,18 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "lockument",
+    id: "securedoc",
     category: "Application Security · Cloud",
-    titleKo: "Lockument – PII 마스킹 & 암호화 클라우드 웹서비스",
-    titleEn: "Lockument – PII Masking & Encryption Cloud Web Service",
+    titleKo: "SecureDoc Cloud – PII 마스킹 & 암호화 웹서비스",
+    titleEn: "SecureDoc Cloud – PII Masking & Encryption Web Service",
     summaryKo:
-      "다양한 문서(PPT, PDF, Word, Excel)에 포함된 개인정보를 자동으로 탐지하고, PII 마스킹과 AES-GCM 기반 암·복호화를 제공하는 클라우드 웹서비스입니다. AWS KMS, Docker, React/Flask를 활용해 실제 서비스 수준의 아키텍처를 설계·구현했습니다.",
+      "문서에 포함된 개인정보를 자동 탐지·마스킹하고 AES-GCM 기반 암·복호화를 제공하는 SaaS PoC입니다. AWS KMS, Docker, React/Flask를 활용해 실제 서비스 수준의 아키텍처를 설계·구현했습니다.",
     summaryEn:
-      "A cloud-based web service that detects PII in office documents and applies masking plus AES-GCM encryption, powered by AWS KMS, Docker, and a React + Flask architecture.",
+      "SecureDoc Cloud detects PII in uploaded documents, applies masking, and performs AES-GCM encryption with AWS KMS-driven key management.",
     role: "팀 리더/PM, 아키텍처 설계, 보안 플로우 정의, 발표",
-    period: "2025 캡스톤 프로젝트",
+    period: "2025 캡스톤 금상",
     techStack: "AWS KMS, AES-GCM, Docker, React, Flask, PostgreSQL",
-    tags: ["PII Masking", "AES-GCM", "AWS KMS", "Dockerized", "Capstone 2nd Place"],
+    tags: ["PII Masking", "AES-GCM", "AWS KMS", "Dockerized", "Capstone"],
   },
   {
     id: "web-vapt",
