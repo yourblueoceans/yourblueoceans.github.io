@@ -1,5 +1,6 @@
 import React from "react";
-import { CARD_HOVER, CARD_SURFACE, SECTION_CONTAINER, SECTION_SPACING, EYEBROW_TEXT } from "../constants/layout";
+import { motion } from "framer-motion";
+import { bodyText, cardClass, heading2, innerClass, overline, pillClass, sectionClass, sectionMotion } from "../ui/tokens";
 
 type CaseStudy = {
   id: string;
@@ -46,56 +47,47 @@ const caseStudies: CaseStudy[] = [
 ];
 
 const CaseStudiesSection: React.FC = () => (
-  <section id="case-studies" className={SECTION_SPACING}>
-    <div className={`${SECTION_CONTAINER} flex flex-col gap-10 py-24 sm:py-28 lg:py-32`}>
-      <div className="space-y-3">
-        <p className={EYEBROW_TEXT}>CASE STUDIES</p>
-        <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">보안 컨설팅을 목표로 한 대표 프로젝트 3선</h2>
-        <p className="max-w-3xl text-sm text-slate-400">
+  <motion.section id="case-study-list" className={sectionClass} {...sectionMotion}>
+    <div className={innerClass}>
+      <div>
+        <p className={overline}>CASE STUDIES</p>
+        <h2 className={heading2}>보안 컨설팅을 목표로 한 대표 프로젝트 3선</h2>
+        <p className="section-lead mt-3">
           실제 보안 컨설팅 환경을 가정해 진행한 프로젝트들입니다. 문제 정의부터 접근 방식, 결과와 인사이트까지 Case Study 포맷으로 정리했습니다.
         </p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-        {caseStudies.map((item, idx) => (
-          <article
-            key={item.id}
-            className={`group ${CARD_SURFACE} ${CARD_HOVER} border-white/10 bg-gradient-to-b from-slate-950 to-slate-900 p-8 ${
-              idx === 0 ? "shadow-[0_32px_110px_rgba(99,102,241,0.35)]" : ""
-            }`}
-          >
-            <div className="mb-4 inline-flex items-center rounded-full border border-slate-700 bg-slate-900/80 px-4 py-1 text-[11px] text-slate-300">
-              {item.category}
-            </div>
-            <h3 className="text-base font-semibold text-slate-50">{item.title}</h3>
-            <p className="text-[12px] text-slate-400">{item.subtitle}</p>
-            <p className="mt-4 text-sm leading-relaxed text-slate-300">{item.summary}</p>
-            <ul className="mt-4 space-y-1 text-sm text-slate-200">
+      <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        {caseStudies.map((item) => (
+          <article key={item.id} className={`${cardClass} flex h-full flex-col`}>
+            <div className="mb-4 h-40 w-full rounded-2xl bg-gradient-to-tr from-slate-200 to-slate-100" />
+            <div className={`${pillClass} mb-3 w-max`}>{item.category}</div>
+            <h3 className="text-[var(--fs-card-title)] font-semibold text-[var(--color-text-strong)]">{item.title}</h3>
+            <p className="text-xs uppercase tracking-[0.18em] text-indigo-500">{item.subtitle}</p>
+            <p className={`${bodyText} mt-4`}>{item.summary}</p>
+            <ul className="mt-5 space-y-3">
               {item.highlights.map((highlight) => (
-                <li key={highlight} className="flex gap-2">
-                  <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-violet-400" />
+                <li key={highlight} className="flex gap-3 text-[var(--fs-body)] leading-relaxed">
+                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-500" />
                   <span>{highlight}</span>
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-[12px] text-slate-400">
-              <span className="font-semibold text-slate-300">Role</span> · {item.role}
+            <p className="mt-5 text-[var(--fs-body)] leading-relaxed">
+              <span className="font-semibold text-[var(--color-text-strong)]">Role</span> · {item.role}
             </p>
-            <p className="text-[12px] text-slate-400">
-              <span className="font-semibold text-slate-300">Tech</span> · {item.techStack.join(" · ")}
+            <p className="text-[var(--fs-body)] leading-relaxed">
+              <span className="font-semibold text-[var(--color-text-strong)]">Tech</span> · {item.techStack.join(" · ")}
             </p>
-            <button
-              type="button"
-              className="mt-5 inline-flex items-center text-sm font-semibold text-violet-300 transition hover:text-white"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              자세히 보기 ↗
-            </button>
+            <a href="#contact" className="mt-6 inline-flex items-center text-[var(--fs-body)] font-semibold text-indigo-600 transition hover:translate-x-1">
+              자세히 보기
+              <span className="ml-1 text-base">↗</span>
+            </a>
           </article>
         ))}
       </div>
     </div>
-  </section>
+  </motion.section>
 );
 
 export default CaseStudiesSection;

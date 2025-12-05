@@ -7,7 +7,7 @@ export type RichParagraph = RichTextSegment[];
 
 export const copy = {
   hero: {
-    pill: "서상원 Sangwon Seo · Security Consulting & Cloud Security",
+    pill: "서상원 (Sangwon Suh) · Security Consulting & Cloud Security",
     keywordLabels: [
       "Cloud Security",
       "Security Consulting",

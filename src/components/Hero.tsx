@@ -125,7 +125,7 @@ const Hero: React.FC<HeroProps> = ({ onViewProjects, onDownloadResumeKr }) => {
               <img src="/profile.jpg" alt="서상원 증명사진" className="h-full w-full object-cover" />
             </div>
             <div>
-              <p className="text-lg font-semibold text-white">서상원 Sangwon Seo</p>
+              <p className="text-lg font-semibold text-white">서상원 (Sangwon Suh)</p>
               <p className="text-sm text-slate-300">Cloud Security &amp; Information Protection</p>
             </div>
           </div>

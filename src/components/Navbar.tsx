@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
             S
           </div>
           <div className="leading-tight">
-            <p>Seo Sangwon</p>
+            <p>서상원 (Sangwon Suh)</p>
             <p className="text-xs font-normal text-slate-400">
               Cloud Security Portfolio
             </p>

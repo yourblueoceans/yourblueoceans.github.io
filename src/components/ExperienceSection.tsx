@@ -1,5 +1,6 @@
 import React from "react";
-import { SECTION_CONTAINER, SECTION_SPACING, EYEBROW_TEXT, CARD_SURFACE } from "../constants/layout";
+import { motion } from "framer-motion";
+import { cardClass, captionText, heading2, innerClass, overline, sectionClass, sectionMotion } from "../ui/tokens";
 
 const experience = [
   {
@@ -29,58 +30,46 @@ const certs = [
 
 const ExperienceSection: React.FC = () => {
   return (
-    <section id="experience" className={SECTION_SPACING}>
-      <div className={`${SECTION_CONTAINER} py-24 sm:py-28 lg:py-32`}>
-        <div className="grid gap-10 lg:grid-cols-[3fr,2fr]">
-          {/* LEFT: Experience Timeline */}
-          <div className="space-y-5">
-            <div className="space-y-3">
-              <p className={EYEBROW_TEXT}>EXPERIENCE</p>
-              <h2 className="text-2xl font-semibold text-slate-50 sm:text-3xl">경험과 학습 경로</h2>
-              <p className="max-w-xl text-sm text-slate-400">
-                보안 지식뿐 아니라, 현장 운영·고객 경험·해외 생활을 통해 쌓은 역량을 함께 가져가고자 합니다.
-              </p>
-            </div>
-            <ol className="space-y-4 border-l border-slate-800 pl-4">
-              {experience.map((item) => (
-                <li key={item.title} className="relative space-y-1">
-                  <span className="absolute -left-2.5 mt-1 h-2 w-2 rounded-full bg-violet-400" />
-                  <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-400">{item.period}</p>
-                  <p className="text-sm font-semibold text-slate-50">{item.title}</p>
-                  <p className="text-[13px] text-slate-300">{item.desc}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
+    <motion.section id="experience" className={sectionClass} {...sectionMotion}>
+      <div className={`${innerClass} md:grid md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:gap-12`}>
+        <div>
+          <p className={overline}>EXPERIENCE</p>
+          <h2 className={heading2}>경험과 학습 경로</h2>
+          <p className="section-lead mt-3">보안 지식뿐 아니라 현장 운영·고객 경험·해외 생활로 쌓은 역량을 함께 가져가고자 합니다.</p>
+          <ol className="mt-8 space-y-6 border-l border-slate-200 pl-6">
+            {experience.map((item) => (
+              <li key={item.title} className="relative space-y-2">
+                <span className="absolute -left-[13px] mt-1 h-3 w-3 rounded-full bg-sky-500" />
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-indigo-500">{item.period}</p>
+                <p className="text-[1.05rem] font-semibold text-[var(--color-text-strong)] md:text-lg">{item.title}</p>
+                <p className="text-[var(--fs-body)] text-[var(--color-text)]">{item.desc}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
 
-          {/* RIGHT: Certs & Awards */}
-          <div className="space-y-5">
-            <div className="space-y-3">
-              <p className={EYEBROW_TEXT}>CERTIFICATIONS</p>
-              <h3 className="text-lg font-semibold text-slate-50">자격증</h3>
-              <p className="text-sm text-slate-400">보안·네트워크·IT 인프라 기반을 다지기 위해 준비하거나 취득한 자격들입니다.</p>
-            </div>
-            <div className="flex flex-wrap gap-2">
+        <div className="mt-10 space-y-6 md:mt-0">
+          <div className="space-y-3">
+            <p className={overline}>CERTIFICATIONS</p>
+            <h3 className="text-[var(--fs-card-title)] font-semibold text-[var(--color-text-strong)]">자격증 &amp; 배지</h3>
+            <div className="flex flex-wrap gap-2 text-sm text-[var(--color-text)]">
               {certs.map((cert) => (
-                <span key={cert} className="rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-[11px] text-slate-200">
+                <span key={cert} className="rounded-full border border-slate-200 bg-white/80 px-3 py-1">
                   {cert}
                 </span>
               ))}
             </div>
-            <div className="space-y-2 pt-4">
-              <p className={EYEBROW_TEXT}>HIGHLIGHTS</p>
-              <div className={`${CARD_SURFACE} border-white/10 bg-slate-900/80 p-4 text-[13px] text-slate-300`}>
-                <p>
-                  <span className="font-semibold text-slate-50">2025 캡스톤 디자인 대회 2위 – Lockument</span>
-                  <br />
-                  PII 정보 마스킹 및 암호화 클라우드 웹서비스로, 심사위원들로부터 “실제 기업 솔루션 같다”는 평가를 받았습니다.
-                </p>
-              </div>
+          </div>
+          <div className="space-y-3">
+            <p className={overline}>HIGHLIGHT</p>
+            <div className={cardClass}>
+              <p className="text-[var(--fs-body-lg)] font-semibold text-[var(--color-text-strong)]">2025 캡스톤 디자인 대회 2위 – Lockument</p>
+              <p className={`${captionText} mt-2`}>PII 정보 마스킹 및 암호화 클라우드 웹서비스로 “실제 기업 솔루션 같다”는 평가를 받았습니다.</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -29,6 +29,16 @@ const config = {
         "grid-faint":
           "linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.08) 1px, transparent 1px)",
       },
+      animation: {
+        "ssw-spin-slow": "ssw-spin 18s linear infinite",
+      },
+      keyframes: {
+        "ssw-spin": {
+          "0%": { transform: "rotate3d(0.3, 1, 0, 0deg)" },
+          "50%": { transform: "rotate3d(0.3, 1, 0, 180deg)" },
+          "100%": { transform: "rotate3d(0.3, 1, 0, 360deg)" },
+        },
+      },
       maxWidth: {
         content: "72rem",
       },
