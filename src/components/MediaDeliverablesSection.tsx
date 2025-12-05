@@ -73,7 +73,7 @@ const projects: ProjectMedia[] = [
 ];
 
 const MediaDeliverablesSection: React.FC = () => {
-  const [open, setOpen] = useState<string[]>([projects[0].id]);
+  const [open, setOpen] = useState<string[]>([]);
 
   const toggle = (id: string) => {
     setOpen((prev) => (prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]));
@@ -84,7 +84,7 @@ const MediaDeliverablesSection: React.FC = () => {
       <div className={innerClass}>
         <div className="max-w-3xl">
           <p className={overline}>MEDIA &amp; DELIVERABLES</p>
-          <h2 className={`${heading2} text-4xl font-extrabold tracking-tight`}>프로젝트 산출물 &amp; 리포트</h2>
+          <h2 className={`${heading2} text-4xl font-extrabold tracking-tight`}>{"SecureDoc\u00A0Cloud · Drop\u00A0the\u00A0Port · 웹\u00A0취약점\u00A0분석 산출물"}</h2>
           <p className={`${bodyText} mt-3 text-[0.98rem] md:text-base lg:text-[1.05rem]`}>
             프로젝트별 산출물, 설계 문서, 리포트를 세로 타임라인으로 정리했습니다. 각 항목을 펼쳐 개요와 역할, Tech, Deliverable을 확인해 보세요.
           </p>

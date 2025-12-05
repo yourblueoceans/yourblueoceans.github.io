@@ -54,7 +54,7 @@ const services: Service[] = [
 const serviceIcons = [ShieldCheck, FileLock, Server, Briefcase];
 
 const WhatICanDoSection: React.FC = () => {
-  const [expanded, setExpanded] = useState<number>(0);
+  const [expanded, setExpanded] = useState<number>(-1);
 
   const toggleCard = (index: number) => {
     setExpanded((prev) => (prev === index ? -1 : index));

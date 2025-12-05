@@ -69,7 +69,7 @@ const CaseStudiesSection: React.FC = () => (
     <div className={innerClass}>
       <div className="max-w-4xl">
         <p className={overline}>CASE STUDIES</p>
-        <h2 className={`${heading2} text-4xl font-extrabold tracking-tight`}>SecureDoc Cloud · Drop the Port · 웹 취약점 분석</h2>
+        <h2 className={`${heading2} text-4xl font-extrabold tracking-tight`}>{"SecureDoc\u00A0Cloud · Drop\u00A0the\u00A0Port · 웹\u00A0취약점\u00A0분석"}</h2>
         <p className={`${bodyText} mt-3 max-w-3xl text-[0.98rem] md:text-base lg:text-[1.05rem]`}>
           대표 프로젝트 3건을 통해 PII 보호, 인프라 분리, Web VAPT 컨설팅 워크플로우를 경험했습니다. 아래 타임라인은 Media &amp; Deliverables에도 동일하게 반영되어 있습니다.
         </p>

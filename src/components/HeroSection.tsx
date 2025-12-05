@@ -22,7 +22,7 @@ const HeroSection: React.FC = () => (
     <div className="hero-inner">
       <div className="hero-layout">
         <div className="hero-text">
-          <p className="hero-kicker">서상원 (Sangwon Suh) · Security Consulting &amp; Information Security</p>
+          <p className="hero-kicker">Security Consulting &amp; Information Security</p>
           <h1 className="hero-heading">
             클라우드 보안·웹 취약점 진단으로
             <br />
