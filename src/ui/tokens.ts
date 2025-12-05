@@ -1,4 +1,4 @@
-export const sectionClass = "page-section section-light";
+export const sectionClass = "section section-light";
 
 export const innerClass = "section-inner";
 

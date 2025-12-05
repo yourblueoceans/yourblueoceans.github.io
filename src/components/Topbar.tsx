@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 
 const navItems = [
-  { label: "About", target: "hero" },
-  { label: "Case Study", target: "case-studies" },
+  { label: "About", target: "about" },
+  { label: "Case Studies", target: "case-studies" },
   { label: "What I Can Do", target: "what-i-can-do" },
+  { label: "Media & Deliverables", target: "media-deliverables" },
   { label: "Experience", target: "experience" },
   { label: "Contact", target: "contact" },
 ];
 
 const Topbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("hero");
+  const [activeSection, setActiveSection] = useState<string>(navItems[0].target);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
