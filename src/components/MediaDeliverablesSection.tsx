@@ -21,23 +21,24 @@ type ProjectMedia = {
 
 const projects: ProjectMedia[] = [
   {
-    id: "web-vapt",
-    title: "웹 취약점 분석 – Upload / XSS / CSRF 실습",
-    category: "웹 취약점 분석",
-    timeline: "웹 취약점 분석 (2025.11~12)",
-    summary: "Upload, XSS, CSRF 취약점을 실제로 재현하고 Burp Suite·브라우저 DevTools를 활용해 요청/응답을 분석한 뒤 Web VAPT 리포트 형식으로 정리한 실습 프로젝트입니다.",
+    id: "securedoc",
+    title: "SecureDoc Cloud – PII 마스킹 & 암호화 웹서비스",
+    category: "SecureDoc Cloud",
+    timeline: "SecureDoc Cloud (2025.08~11, 2인 팀장, 캡스톤 금상)",
+    summary:
+      "PII 필드 자동 탐지·마스킹과 AES-GCM 암호화를 결합한 문서 보안 SaaS PoC입니다. AWS KMS 기반 키 관리와 웹 VAPT 대응까지 포함해 실제 기업 솔루션에 가깝다는 평가를 받은 프로젝트입니다.",
     details: [
-      { label: "Role", value: "취약점 재현 · 요청/응답 분석 · 조치 리포트 작성" },
-      { label: "Tech", value: "Burp Suite, Chrome DevTools, PHP Lab, HTTP(S)" },
-      { label: "Deliverable", value: "취약점 리포트, 발표 슬라이드, 재진단 체크리스트" },
+      { label: "Role", value: "보안 설계 · PoC 총괄 · 발표 · 리포트 작성" },
+      { label: "Tech", value: "AWS KMS, AES-GCM, React, Flask, Docker" },
+      { label: "Deliverable", value: "보안 설계 문서, 암·복호화 PoC, 발표 자료" },
     ],
     assets: [
-      { label: "취약점 진단 리포트", href: "/assets/web-vapt-report.pdf", badge: "PDF" },
-      { label: "발표 슬라이드", href: "/assets/web-vapt-presentation.pdf", badge: "PDF" },
+      { label: "보안 설계 & 리포트", href: "/assets/lockument-report.pdf", badge: "PDF" },
+      { label: "캡스톤 발표 자료", href: "/assets/lockument-presentation.pdf", badge: "PDF" },
     ],
   },
   {
-    id: "network-infra",
+    id: "droptheport",
     title: "Drop the Port – 사내형 네트워크 인프라 & 방화벽 설계",
     category: "Drop the Port",
     timeline: "Drop the Port (2025.08.21~11.03, 4인 팀장, CB 정보통신(가상의 스타트업))",
@@ -54,20 +55,19 @@ const projects: ProjectMedia[] = [
     ],
   },
   {
-    id: "lockument-assets",
-    title: "SecureDoc Cloud – PII 마스킹 & 암호화 웹서비스",
-    category: "SecureDoc Cloud",
-    timeline: "SecureDoc Cloud (2025.08~11, 2인 팀장, 캡스톤 금상)",
-    summary:
-      "PII 필드 자동 탐지·마스킹과 AES-GCM 암호화를 결합한 문서 보안 SaaS PoC입니다. AWS KMS 기반 키 관리와 웹 VAPT 대응까지 포함해 실제 기업 솔루션에 가깝다는 평가를 받은 프로젝트입니다.",
+    id: "web-vapt",
+    title: "웹 취약점 분석 – Upload / XSS / CSRF 실습",
+    category: "웹 취약점 분석",
+    timeline: "웹 취약점 분석 (2025.11~12)",
+    summary: "Upload, XSS, CSRF 취약점을 실제로 재현하고 Burp Suite·브라우저 DevTools를 활용해 요청/응답을 분석한 뒤 Web VAPT 리포트 형식으로 정리한 실습 프로젝트입니다.",
     details: [
-      { label: "Role", value: "보안 설계 · PoC 총괄 · 발표 · 리포트 작성" },
-      { label: "Tech", value: "AWS KMS, AES-GCM, React, Flask, Docker" },
-      { label: "Deliverable", value: "보안 설계 문서, 암·복호화 PoC, 발표 자료" },
+      { label: "Role", value: "취약점 재현 · 요청/응답 분석 · 조치 리포트 작성" },
+      { label: "Tech", value: "Burp Suite, Chrome DevTools, PHP Lab, HTTP(S)" },
+      { label: "Deliverable", value: "취약점 리포트, 발표 슬라이드, 재진단 체크리스트" },
     ],
     assets: [
-      { label: "보안 설계 & 리포트", href: "/assets/lockument-report.pdf", badge: "PDF" },
-      { label: "캡스톤 발표 자료", href: "/assets/lockument-presentation.pdf", badge: "PDF" },
+      { label: "취약점 진단 리포트", href: "/assets/web-vapt-report.pdf", badge: "PDF" },
+      { label: "발표 슬라이드", href: "/assets/web-vapt-presentation.pdf", badge: "PDF" },
     ],
   },
 ];

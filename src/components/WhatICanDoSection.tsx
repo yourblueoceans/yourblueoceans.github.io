@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Briefcase, ChevronDown, FileLock, Server, ShieldCheck } from "lucide-react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { bodyText, heading2, innerClass, overline, pillClass, sectionClass, sectionMotion } from "../ui/tokens";
 
 type Service = {
@@ -54,10 +54,10 @@ const services: Service[] = [
 const serviceIcons = [ShieldCheck, FileLock, Server, Briefcase];
 
 const WhatICanDoSection: React.FC = () => {
-  const [expanded, setExpanded] = useState<number[]>([0]);
+  const [expanded, setExpanded] = useState<number>(0);
 
   const toggleCard = (index: number) => {
-    setExpanded((prev) => (prev.includes(index) ? prev.filter((item) => item !== index) : [...prev, index]));
+    setExpanded((prev) => (prev === index ? -1 : index));
   };
 
   return (
@@ -74,7 +74,7 @@ const WhatICanDoSection: React.FC = () => {
         <div className="mt-12 space-y-5">
           {services.map((service, idx) => {
             const Icon = serviceIcons[idx] ?? ShieldCheck;
-            const isOpen = expanded.includes(idx);
+            const isOpen = expanded === idx;
             return (
               <article key={service.title} className={`stack-card ${isOpen ? "open" : ""}`}>
                 <button
@@ -95,29 +95,40 @@ const WhatICanDoSection: React.FC = () => {
                   </div>
                   <ChevronDown className={`stack-chevron ${isOpen ? "open" : ""}`} />
                 </button>
-                {isOpen && (
-                  <div className="mt-5 space-y-5 pt-2">
-                    <p className={`${bodyText} text-[0.98rem] leading-relaxed text-slate-700`}>{service.description}</p>
-                    <ul className="space-y-3 text-[0.98rem] leading-relaxed text-slate-700">
-                      {service.bullets.map((bullet) => (
-                        <li key={bullet} className="flex gap-3">
-                          <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-500" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="space-y-2">
-                      <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">주요 툴 · 기술</p>
-                      <div className="flex flex-wrap gap-2">
-                        {service.tools.map((tool) => (
-                          <span key={tool} className={pillClass}>
-                            {tool}
-                          </span>
-                        ))}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="mt-5 space-y-5 pt-2">
+                        <p className={`${bodyText} text-[0.98rem] leading-relaxed text-slate-700`}>{service.description}</p>
+                        <ul className="space-y-3 text-[0.98rem] leading-relaxed text-slate-700">
+                          {service.bullets.map((bullet) => (
+                            <li key={bullet} className="flex gap-3">
+                              <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-500" />
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="space-y-2">
+                          <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">주요 툴 · 기술</p>
+                          <div className="flex flex-wrap gap-2">
+                            {service.tools.map((tool) => (
+                              <span key={tool} className={pillClass}>
+                                {tool}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </article>
             );
           })}
