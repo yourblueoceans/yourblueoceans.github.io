@@ -1,154 +1,85 @@
-import React, { useState } from "react";
-import { ChevronDown } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
+import { FileText, PlayCircle, Presentation, Workflow } from "lucide-react";
+import { PROJECTS, type ProjectDeliverableType } from "../copy/projects";
 import { bodyText, cardClass, heading2, innerClass, overline, sectionClass, sectionMotion } from "../ui/tokens";
 
-type ProjectAsset = {
-  label: string;
-  href: string;
-  badge: string;
+const deliverableIcons: Record<ProjectDeliverableType, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
+  report: FileText,
+  slides: Presentation,
+  diagram: Workflow,
+  video: PlayCircle,
 };
 
-type ProjectMedia = {
-  id: string;
-  title: string;
-  category: string;
-  timeline: string;
-  summary: string;
-  details: { label: string; value: string }[];
-  assets: ProjectAsset[];
-};
-
-const projects: ProjectMedia[] = [
-  {
-    id: "securedoc",
-    title: "SecureDoc Cloud – PII 마스킹 & 암호화 웹서비스",
-    category: "SecureDoc Cloud",
-    timeline: "SecureDoc Cloud (2025.08~11, 2인 팀장, 캡스톤 금상)",
-    summary:
-      "PII 필드 자동 탐지·마스킹과 AES-GCM 암호화를 결합한 문서 보안 SaaS PoC입니다. AWS KMS 기반 키 관리와 웹 VAPT 대응까지 포함해 실제 기업 솔루션에 가깝다는 평가를 받은 프로젝트입니다.",
-    details: [
-      { label: "Role", value: "보안 설계 · PoC 총괄 · 발표 · 리포트 작성" },
-      { label: "Tech", value: "AWS KMS, AES-GCM, React, Flask, Docker" },
-      { label: "Deliverable", value: "보안 설계 문서, 암·복호화 PoC, 발표 자료" },
-    ],
-    assets: [
-      { label: "보안 설계 & 리포트", href: "/assets/lockument-report.pdf", badge: "PDF" },
-      { label: "캡스톤 발표 자료", href: "/assets/lockument-presentation.pdf", badge: "PDF" },
-    ],
-  },
-  {
-    id: "droptheport",
-    title: "Drop the Port – 사내형 네트워크 인프라 & 방화벽 설계",
-    category: "Drop the Port",
-    timeline: "Drop the Port (2025.08.21~11.03, 4인 팀장, CB 정보통신(가상의 스타트업))",
-    summary:
-      "가상의 스타트업 ‘CB 정보통신’ 사내망을 가정하고 L2/L3 스위치, VLAN, 방화벽, DMZ를 설계·구성한 인프라 보안 프로젝트입니다. 서비스/관리/DMZ 세그먼트 분리와 트래픽 분석을 통해 보안 인프라 설계와 운영을 실습했습니다.",
-    details: [
-      { label: "Role", value: "아키텍처 설계 · 정책 정의 · 트래픽 검증 보고" },
-      { label: "Tech", value: "Cisco L2/L3, VLAN, Firewall, DMZ, Linux" },
-      { label: "Deliverable", value: "인프라 설계도, 정책 문서, 패킷 캡처 리포트" },
-    ],
-    assets: [
-      { label: "설계/구성 문서", href: "/assets/network-design.pdf", badge: "PDF" },
-      { label: "패킷 캡처 분석", href: "/assets/network-packet-report.pdf", badge: "PDF" },
-    ],
-  },
-  {
-    id: "web-vapt",
-    title: "웹 취약점 분석 – Upload / XSS / CSRF 실습",
-    category: "웹 취약점 분석",
-    timeline: "웹 취약점 분석 (2025.11~12)",
-    summary: "Upload, XSS, CSRF 취약점을 실제로 재현하고 Burp Suite·브라우저 DevTools를 활용해 요청/응답을 분석한 뒤 Web VAPT 리포트 형식으로 정리한 실습 프로젝트입니다.",
-    details: [
-      { label: "Role", value: "취약점 재현 · 요청/응답 분석 · 조치 리포트 작성" },
-      { label: "Tech", value: "Burp Suite, Chrome DevTools, PHP Lab, HTTP(S)" },
-      { label: "Deliverable", value: "취약점 리포트, 발표 슬라이드, 재진단 체크리스트" },
-    ],
-    assets: [
-      { label: "취약점 진단 리포트", href: "/assets/web-vapt-report.pdf", badge: "PDF" },
-      { label: "발표 슬라이드", href: "/assets/web-vapt-presentation.pdf", badge: "PDF" },
-    ],
-  },
-];
-
-const MediaDeliverablesSection: React.FC = () => {
-  const [open, setOpen] = useState<string[]>([]);
-
-  const toggle = (id: string) => {
-    setOpen((prev) => (prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]));
-  };
-
-  return (
-    <motion.section id="media-deliverables" className={sectionClass} {...sectionMotion}>
-      <div className={innerClass}>
-        <div className="max-w-3xl">
-          <p className={overline}>MEDIA &amp; DELIVERABLES</p>
-          <h2 className={`${heading2} text-4xl font-extrabold tracking-tight`}>{"SecureDoc\u00A0Cloud · Drop\u00A0the\u00A0Port · 웹\u00A0취약점\u00A0분석 산출물"}</h2>
-          <p className={`${bodyText} mt-3 text-[0.98rem] md:text-base lg:text-[1.05rem]`}>
-            프로젝트별 산출물, 설계 문서, 리포트를 세로 타임라인으로 정리했습니다. 각 항목을 펼쳐 개요와 역할, Tech, Deliverable을 확인해 보세요.
-          </p>
-        </div>
-
-        <div className="relative mt-12 space-y-6 pl-6">
-          <span className="timeline-line" aria-hidden="true" />
-          {projects.map((project) => {
-            const isOpen = open.includes(project.id);
-            return (
-              <article key={project.id} className={`${cardClass} relative ${isOpen ? "open" : ""}`}>
-                <div className="absolute -left-[34px] top-7">
-                  <span className="timeline-dot" />
-                </div>
-                <button
-                  type="button"
-                  className="stack-header"
-                  aria-expanded={isOpen}
-                  onClick={() => toggle(project.id)}
-                >
-                  <div>
-                    <p className="text-[0.75rem] font-semibold uppercase tracking-[0.35em] text-indigo-500">{project.category}</p>
-                    <h3 className="text-2xl font-semibold text-slate-900">{project.title}</h3>
-                    <p className="text-sm font-semibold text-indigo-600">{project.timeline}</p>
-                    <p className="mt-2 text-[0.95rem] leading-relaxed text-slate-600 line-clamp-2">{project.summary}</p>
-                  </div>
-                  <ChevronDown className={`stack-chevron ${isOpen ? "open" : ""}`} />
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      key={`${project.id}-content`}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: "easeInOut" }}
-                      className="overflow-hidden"
-                    >
-                      <div className="mt-4 flex flex-wrap gap-3">
-                        {project.assets.map((asset) => (
-                          <a key={asset.label} href={asset.href} target="_blank" rel="noreferrer" className="media-asset">
-                            <span>{asset.label}</span>
-                            <span className="media-asset-badge">{asset.badge}</span>
-                          </a>
-                        ))}
-                      </div>
-                      <div className="mt-5 space-y-3 border-t border-slate-200 pt-4 text-[0.98rem] text-slate-700">
-                        {project.details.map((detail) => (
-                          <p key={detail.label}>
-                            <span className="font-semibold text-slate-900">{detail.label}</span> : {detail.value}
-                          </p>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </article>
-            );
-          })}
-        </div>
+const MediaDeliverablesSection: React.FC = () => (
+  <motion.section id="media-deliverables" className={sectionClass} {...sectionMotion}>
+    <div className={`${innerClass} flex flex-col items-center gap-10`}>
+      <div className="max-w-[760px] space-y-4 text-center">
+        <p className={overline}>MEDIA &amp; DELIVERABLES</p>
+        <h2 className={`${heading2} text-[clamp(1.9rem,3.1vw,2.4rem)] font-extrabold tracking-tight`}>다운로드 허브</h2>
+        <p className={`${bodyText} mx-auto max-w-[720px] text-base leading-relaxed text-slate-700 md:text-[1.05rem]`}>
+          각 프로젝트에서 실제로 작성한 리포트, 설계 문서, 발표 자료를 한 번에 확인할 수 있도록 모았습니다. 구직자나 면접관이 증빙 자료를
+          바로 열어볼 수 있는 다운로드 허브입니다.
+        </p>
       </div>
-    </motion.section>
-  );
-};
+
+      <div className="flex w-full flex-col gap-8">
+        {PROJECTS.map((project) => (
+          <article key={project.id} className={`${cardClass} mx-auto w-full max-w-[1080px] space-y-6`}>
+            <header className="space-y-2">
+              <p className="text-sm font-semibold text-indigo-600">
+                {project.period} · {project.team}
+              </p>
+              <h3 className="text-[clamp(1.5rem,2.4vw,1.75rem)] font-semibold text-[var(--color-text-strong)]">{project.title}</h3>
+              <p className="text-lg font-medium text-slate-600">{project.subtitle}</p>
+            </header>
+
+            <div className="space-y-4 rounded-3xl bg-white/80 p-4 shadow-sm ring-1 ring-slate-200/70 md:p-6">
+              <div className="flex items-center gap-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">Deliverables</p>
+                <div className="h-px flex-1 bg-slate-200" />
+              </div>
+              <div className="flex flex-col gap-4">
+                {project.deliverables.map((deliverable) => {
+                  const Icon = deliverableIcons[deliverable.type] ?? FileText;
+                  return (
+                    <div
+                      key={`${project.id}-${deliverable.label}`}
+                      className="flex flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white/90 p-4 md:flex-row md:items-start md:gap-4"
+                    >
+                      <div className="role-icon">
+                        <Icon className="role-icon-svg" />
+                      </div>
+                      <div className="flex-1 space-y-1">
+                        <div className="flex flex-wrap items-center gap-3">
+                          <p className="text-base font-semibold text-slate-900">{deliverable.label}</p>
+                          <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold tracking-[0.25em] text-slate-600">
+                            {deliverable.format}
+                          </span>
+                        </div>
+                        <p className="text-[0.98rem] leading-relaxed text-slate-600">{deliverable.description}</p>
+                      </div>
+                      {deliverable.href && (
+                        <a
+                          href={deliverable.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center justify-center rounded-full border border-indigo-200 px-4 py-2 text-sm font-semibold text-indigo-600 transition hover:border-indigo-400 hover:text-indigo-700"
+                        >
+                          열기 ↗
+                        </a>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </motion.section>
+);
 
 export default MediaDeliverablesSection;
 

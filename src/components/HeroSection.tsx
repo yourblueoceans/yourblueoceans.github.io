@@ -23,20 +23,18 @@ const HeroSection: React.FC = () => (
       <div className="hero-layout">
         <div className="hero-text">
           <p className="hero-kicker">Security Consulting &amp; Information Security</p>
-          <h1 className="hero-heading">
-            클라우드 보안·웹 취약점 진단으로
-            <br />
-            고객 환경을 지키는 보안컨설턴트 지망생, 서상원
+          <h1 className="hero-heading text-balance">
+            클라우드 보안·웹 취약점 진단으로 고객 환경을 지키는 보안컨설턴트 지망생, 서상원
           </h1>
-          <p className="hero-subtext">
+          <p className="hero-subtext max-w-[640px] leading-[1.75]">
             Security Consultant in training · Web VAPT · Cloud &amp; Infra Security · Security Solution PoC
           </p>
-          <p className="hero-subtext hero-subtext-secondary">
+          <p className="hero-subtext hero-subtext-secondary max-w-[640px] leading-[1.75]">
             <span className="font-semibold text-white">Web VAPT</span>, <span className="font-semibold text-white">Cloud Security</span>,{" "}
             <span className="font-semibold text-white">Network Infra Security</span>를 직접 설계·실습하며 고객 환경을 이해하는 주니어 정보보안 엔지니어입니다.
           </p>
-          <p className="hero-subtext hero-subtext-secondary">
-            SecureDoc Cloud, Drop the Port, 웹 취약점 분석 프로젝트를 통해 설계–테스트–리포트–발표까지 이어지는 컨설팅 워크플로우를 경험했습니다.
+          <p className="hero-subtext hero-subtext-secondary max-w-[640px] leading-[1.75]">
+            SecureDoc Cloud, Drop the Port, Web VAPT Lab(웹 취약점 분석) 프로젝트를 통해 설계–테스트–리포트–발표까지 이어지는 컨설팅 워크플로우를 반복했습니다.
           </p>
           <div className="hero-tags">
             {keywords.map((label) => (

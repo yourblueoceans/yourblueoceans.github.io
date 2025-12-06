@@ -63,11 +63,11 @@ const WhatICanDoSection: React.FC = () => {
   return (
     <motion.section id="what-i-can-do" className={sectionClass} {...sectionMotion}>
       <div className={innerClass}>
-        <div className="max-w-3xl">
+        <div className="max-w-[760px]">
           <p className={overline}>WHAT I CAN DO</p>
-          <h2 className={`${heading2} text-4xl font-extrabold tracking-tight`}>팀에서 맡길 수 있는 보안·클라우드 중심 역할</h2>
-          <p className={`${bodyText} mt-3 text-[0.98rem] md:text-base lg:text-[1.05rem]`}>
-            인턴·주니어 포지션으로 합류했을 때 즉시 투입 가능한 역할을 기준으로 정리했습니다. 각 항목을 클릭하면 구체적인 역할, 절차, 활용 도구를 확인할 수 있습니다.
+          <h2 className={`${heading2} text-[clamp(1.9rem,3vw,2.3rem)] font-extrabold tracking-tight`}>팀에서 맡길 수 있는 보안·클라우드 중심 역할</h2>
+          <p className={`${bodyText} mt-3 max-w-[720px] text-base leading-relaxed text-slate-700 md:text-[1.08rem]`}>
+            인턴·주니어 포지션으로 합류했을 때 즉시 투입 가능한 역할을 기준으로 정리했습니다. 각 항목을 클릭하면 구체적인 절차, 산출물, 활용 도구를 확인할 수 있습니다.
           </p>
         </div>
 
@@ -87,9 +87,9 @@ const WhatICanDoSection: React.FC = () => {
                     <div className="role-icon w-10 h-10" aria-hidden="true">
                       <Icon className="role-icon-svg" />
                     </div>
-                    <div>
+                    <div className="space-y-1">
                       <p className="text-[0.75rem] font-semibold uppercase tracking-[0.35em] text-indigo-500">{service.subtitle}</p>
-                      <h3 className="text-2xl font-semibold text-slate-900">{service.title}</h3>
+                      <h3 className="text-[clamp(1.35rem,2.2vw,1.55rem)] font-semibold text-slate-900">{service.title}</h3>
                       <p className="text-base font-medium text-indigo-700">{service.headline}</p>
                     </div>
                   </div>
@@ -106,8 +106,8 @@ const WhatICanDoSection: React.FC = () => {
                       className="overflow-hidden"
                     >
                       <div className="mt-5 space-y-5 pt-2">
-                        <p className={`${bodyText} text-[0.98rem] leading-relaxed text-slate-700`}>{service.description}</p>
-                        <ul className="space-y-3 text-[0.98rem] leading-relaxed text-slate-700">
+                        <p className={`${bodyText} max-w-[680px] text-[1.02rem] leading-relaxed text-slate-700`}>{service.description}</p>
+                        <ul className="space-y-3 text-[1.02rem] leading-relaxed text-slate-700">
                           {service.bullets.map((bullet) => (
                             <li key={bullet} className="flex gap-3">
                               <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sky-500" />
@@ -119,7 +119,7 @@ const WhatICanDoSection: React.FC = () => {
                           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-slate-500">주요 툴 · 기술</p>
                           <div className="flex flex-wrap gap-2">
                             {service.tools.map((tool) => (
-                              <span key={tool} className={pillClass}>
+                              <span key={tool} className={`${pillClass} normal-case`}>
                                 {tool}
                               </span>
                             ))}
