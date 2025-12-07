@@ -9,7 +9,7 @@ const CaseStudiesSection: React.FC = () => (
       <div className="max-w-[780px] space-y-4">
         <p className={overline}>CASE STUDIES</p>
         <h2 className={`${heading2} text-[clamp(1.9rem,3vw,2.3rem)] font-extrabold tracking-tight`}>
-          {"SecureDoc\u00A0Cloud · Drop\u00A0the\u00A0Port · Web\u00A0VAPT Lab"}
+          {"Lockument · Drop\u00A0the\u00A0Port · Web\u00A0VAPT Lab"}
         </h2>
         <p className={`${bodyText} max-w-[720px] text-base leading-relaxed text-slate-700 md:text-[1.05rem]`}>
           대표 프로젝트 세 건을 동일한 데이터 소스로 관리해 문제·접근·영향·역할을 일관되게 정리했습니다. 각 카드에서는 스토리만 다루고,

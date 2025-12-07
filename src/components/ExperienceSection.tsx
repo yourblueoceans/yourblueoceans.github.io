@@ -4,9 +4,9 @@ import { bodyText, cardClass, captionText, heading2, innerClass, overline, secti
 
 const securityProjects = [
   {
-    period: "2025.08–11",
-    title: "SecureDoc Cloud – PII 마스킹 & 암복호화 SaaS",
-    desc: "2인 팀장 · 캡스톤 금상. AWS KMS + AES-GCM 아키텍처를 설계하고 Web VAPT 대응, 리포트/발표까지 총괄했습니다.",
+    period: "2025.08.18–2025.10.30",
+    title: "Lockument (SecureDoc Cloud PoC) – PII 마스킹 & 암복호화 SaaS",
+    desc: "2인 팀장 · 캡스톤 금상. AWS KMS + AES-GCM 기반 문서 암복호화 파이프라인을 설계·구현하고, PoC 테스트·리포트·발표까지 총괄했습니다.",
   },
   {
     period: "2025.08.21–11.03",
@@ -22,14 +22,19 @@ const securityProjects = [
 
 const customerExperience = [
   {
-    period: "2024–현재",
+    period: "2025.03–2026.02",
     title: "한국폴리텍대학 대전캠퍼스 – 클라우드보안과 (하이테크)",
-    desc: "클라우드 보안, 네트워크 보안, Web VAPT 실습을 진행하며 보안컨설팅 워크플로우를 반복 학습 중입니다.",
+    desc: "클라우드 보안, 네트워크 보안, Web VAPT, Docker, Linux 실습 프로젝트를 수행하며 Lockument 캡스톤, 웹 취약점 진단, 사내형 네트워크 구축 등 컨설팅 워크플로우를 경험했습니다.",
   },
   {
     period: "2023.02–2023.09",
     title: "대한항공 (지상직)",
     desc: "공항 현장 운영과 고객 응대, 비정상 상황 대응 시 여러 부서와 협업하며 커뮤니케이션 역량을 다졌습니다.",
+  },
+  {
+    period: "2022.02–2023.02",
+    title: "Apotheco Pharmacy (Pleasanton, CA)",
+    desc: "미국 캘리포니아 Pleasanton 소재 Apotheco Pharmacy에서 환자 응대, 처방 관련 정보 확인 지원, 매장 운영 보조를 수행하며 영어 기반 고객 커뮤니케이션과 실사용자 관점의 경험을 쌓았습니다.",
   },
   {
     period: "2020.12–2021.09",
@@ -100,8 +105,8 @@ const ExperienceSection: React.FC = () => {
           <div className="space-y-3">
             <p className={overline}>HIGHLIGHT</p>
             <div className={cardClass}>
-              <p className="text-[1.08rem] font-semibold text-[var(--color-text-strong)]">2025 SecureDoc Cloud 캡스톤 금상</p>
-              <p className={`${captionText} mt-2 leading-relaxed text-[0.98rem]`}>PII 탐지·마스킹과 AES-GCM 암호화를 결합한 SecureDoc Cloud PoC로 “실제 기업 솔루션 같다”는 평가를 받았습니다.</p>
+              <p className="text-[1.08rem] font-semibold text-[var(--color-text-strong)]">2025 Lockument (SecureDoc Cloud PoC) 캡스톤 금상</p>
+              <p className={`${captionText} mt-2 leading-relaxed text-[0.98rem]`}>PII 탐지·마스킹과 AWS KMS + AES-GCM 암복호화를 결합한 Lockument PoC로 “실제 기업 솔루션 같다”는 평가를 받았습니다.</p>
             </div>
           </div>
         </div>

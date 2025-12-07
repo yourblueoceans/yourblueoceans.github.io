@@ -30,38 +30,38 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     id: "securedoc",
-    title: "SecureDoc Cloud",
-    subtitle: "PII 마스킹 & 암복호화 기반 클라우드 보안 PoC",
-    period: "2025.08–11",
+    title: "Lockument (SecureDoc Cloud PoC)",
+    subtitle: "PII 마스킹 & 암복호화 기반 문서 보안 SaaS PoC",
+    period: "2025.08.18–2025.10.30",
     team: "2인 팀장, 캡스톤 금상",
-    focus: ["PII 마스킹", "AES-GCM 암복호화", "AWS KMS", "Docker", "React/Flask"],
+    focus: ["PII 마스킹", "AES-GCM", "AWS KMS", "Docker", "React/Flask"],
     story: {
       problem:
-        "문서 협업 과정에서 개인정보가 포함된 문서를 외부와 공유해야 했고, 업로드 즉시 민감 필드를 탐지·마스킹한 뒤 암·복호화를 통제할 방법이 필요했습니다.",
+        "문서 업로드 직후 내부 PII 필드를 자동 탐지·마스킹하고 암복호화 로그까지 추적할 수 있는 클라우드형 솔루션이 필요했습니다.",
       approach:
-        "AWS KMS로 키를 관리하고 AES-GCM 암·복호화를 처리하는 파이프라인을 설계했으며, React/Flask + Docker 멀티스테이지 구성으로 PoC를 구축했습니다.",
+        "데이터 흐름을 기준으로 AWS KMS + AES-GCM 키 관리 파이프라인을 설계하고, React/Flask·Docker 멀티스테이지 환경으로 PoC를 구축했습니다.",
       impact: [
-        "주민번호·계좌·연락처 등 PII 필드를 자동 탐지해 정책별로 마스킹",
-        "AWS KMS CMK + AES-GCM 암·복호화와 키 회전·로그 설계를 결합",
-        "Presigned URL과 Docker 기반 멀티스테이지 배포로 안전한 파일 흐름 구현",
-        "캡스톤 금상 수상 및 보안 설계·발표 자료로 신뢰성 확보",
+        "주민번호·계좌·연락처 등 PII 필드를 정책별로 탐지 후 마스킹",
+        "AWS KMS CMK를 이용한 키 생성·회전·로그 감사 체계를 구현",
+        "Presigned URL과 격리된 Docker 네트워크로 파일 전송 구간 보호",
+        "요구사항 정의→설계→구현→테스트→리포트/발표까지 일련의 컨설팅 워크플로우 완수",
       ],
-      role: "보안 아키텍트 & 팀장 – 요구사항 정의, 암호화 플로우 설계, 리포트·발표 총괄",
+      role: "보안 아키텍트 & 팀장 – 요구사항 정의, 암호화 설계, 품질 검증, 리포트/발표 총괄",
       tech: ["AWS KMS", "AES-GCM", "React", "Flask", "Docker", "PostgreSQL"],
     },
     deliverables: [
       {
-        label: "보안 설계 & 리포트",
+        label: "Lockument 보안 설계 & 리포트",
         type: "report",
         format: "PDF",
-        description: "PII 탐지 정책, AES-GCM 키 관리 전략, 위협 모델을 포함한 전체 아키텍처 문서",
+        description: "PII 탐지 정책, 암복호화 다이어그램, 키 관리·감사 설계를 정리한 공식 문서",
         href: "/assets/lockument-report.pdf",
       },
       {
-        label: "캡스톤 발표 슬라이드",
+        label: "Lockument 캡스톤 발표 슬라이드",
         type: "slides",
         format: "PDF",
-        description: "고객 시나리오와 PoC 데모 흐름을 요약한 발표 자료",
+        description: "고객 시나리오, PoC 데모 흐름, 기대 효과를 담은 발표 자료",
         href: "/assets/lockument-presentation.pdf",
       },
     ],
@@ -119,17 +119,17 @@ export const PROJECTS: Project[] = [
     focus: ["File Upload", "XSS", "CSRF", "Directory Indexing", "OWASP Top 10 학습"],
     story: {
       problem:
-        "내부 개발팀이 웹 취약점 리포트와 재현 스크린샷을 요구해 공격·조치 evidence를 빠르게 만들어야 했습니다.",
+        "VMware 기반의 Ubuntu 웹 서버에서 Upload/XSS/CSRF 취약점을 재현하고, 조치 방안을 문서화해 교육용 샘플로 제시해야 했습니다.",
       approach:
-        "Burp Suite·Chrome DevTools로 Upload/XSS/CSRF 취약점을 재현하고, 조치 후 재진단까지 포함한 컨설팅 양식 리포트를 작성했습니다.",
+        "Ubuntu 웹 서버와 Kali 공격 서버를 구성하고, 교수자 제공 양식·주통기·주요정보통신기반시설 기술적 취약점 가이드에 맞춰 시나리오·증적을 수집했습니다.",
       impact: [
-        "파일 업로드 취약점으로 WebShell 업로드 및 WAF 우회 시나리오 재현",
-        "Reflected/Persistent XSS payload로 세션·쿠키 탈취 위험 증명",
-        "CSRF 토큰 미검증 케이스를 요청 단위로 분석하고 대응안 제시",
-        "조치 완료 후 재진단 체크리스트와 증빙 스크린샷 제공",
+        "파일 업로드 취약점 재현으로 임의 스크립트 업로드·실행 가능성을 증명",
+        "Stored/Reflected XSS 시나리오로 세션·쿠키 탈취 위험을 설명",
+        "CSRF 토큰 미검증 사례를 파라미터 단위로 분석해 대응안을 제시",
+        "입력 검증, 파일 확장자/컨텐츠 타입 검증, CSRF 토큰 적용 등 조치안을 리포트로 정리",
       ],
-      role: "리드 테스터 – 테스트 케이스 설계, 요청/응답 분석, 보고서 작성",
-      tech: ["Burp Suite", "Chrome DevTools", "OWASP ZAP", "PHP Test App", "Ubuntu"],
+      role: "리드 테스터 – VMware 환경 구성, HTTP 트래픽 분석, 보고서 작성",
+      tech: ["VMware", "Ubuntu Server", "Kali Linux", "HTTP(S)", "PHP Test App"],
     },
     deliverables: [
       {

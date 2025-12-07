@@ -1,11 +1,11 @@
 import React from "react";
 
-const keywords = ["Security Consultant in Training", "SecureDoc Cloud", "Drop the Port", "Web VAPT · Upload/XSS/CSRF"];
+const keywords = ["Security Consultant in Training", "Lockument (SecureDoc Cloud PoC)", "Drop the Port", "Web VAPT · Upload/XSS/CSRF"];
 
 const profileFacts = [
   { label: "Program", value: "폴리텍 대전 · 클라우드보안과" },
   { label: "Certs", value: "정보보안기사(필기) · CCST" },
-  { label: "Highlight", value: "2025 SecureDoc Cloud 캡스톤 금상" },
+  { label: "Highlight", value: "2025 Lockument(SecureDoc Cloud PoC) 캡스톤 금상" },
 ];
 
 const profileMetrics = [
@@ -17,7 +17,7 @@ const profileMetrics = [
 const HeroSection: React.FC = () => (
   <section id="about" className="hero">
     <div className="hero-cube">
-      <img src="/security-cube.png" alt="Security cube visual" />
+      <img src="/security-cube2.png" alt="Cloud security crystal cube" className="animate-security-cube" />
     </div>
     <div className="hero-inner">
       <div className="hero-layout">
@@ -34,7 +34,7 @@ const HeroSection: React.FC = () => (
             <span className="font-semibold text-white">Network Infra Security</span>를 직접 설계·실습하며 고객 환경을 이해하는 주니어 정보보안 엔지니어입니다.
           </p>
           <p className="hero-subtext hero-subtext-secondary max-w-[640px] leading-[1.75]">
-            SecureDoc Cloud, Drop the Port, Web VAPT Lab(웹 취약점 분석) 프로젝트를 통해 설계–테스트–리포트–발표까지 이어지는 컨설팅 워크플로우를 반복했습니다.
+            Lockument(SecureDoc Cloud PoC), Drop the Port, Web VAPT Lab(웹 취약점 분석) 프로젝트를 통해 설계–테스트–리포트–발표까지 이어지는 컨설팅 워크플로우를 반복했습니다.
           </p>
           <div className="hero-tags">
             {keywords.map((label) => (

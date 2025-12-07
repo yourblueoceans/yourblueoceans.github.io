@@ -18,16 +18,20 @@ const services: Service[] = [
     subtitle: "Upload · XSS · CSRF · OWASP Top 10",
     headline: "시나리오 기반 VAPT 절차와 리포트 작성 경험",
     description:
-      "Burp Suite, Chrome DevTools를 활용해 Upload/XSS/CSRF 취약점을 재현하고, 조치방안을 포함한 Web VAPT 리포트를 작성합니다.",
-    bullets: ["OWASP Top 10 기반 테스트 케이스 설계", "요청/응답 분석 및 PoC 스크립트 작성", "기술·비기술 리포트와 브리핑"],
-    tools: ["Burp Suite", "OWASP ZAP", "Chrome DevTools"],
+      "VMware 기반 Ubuntu 웹 서버와 Kali 공격 서버를 구성해 Upload/XSS/CSRF 취약점을 실습하고, 주통기·주요정보통신기반시설 가이드에 맞춘 리포트를 작성합니다.",
+    bullets: [
+      "OWASP Top 10 기반 테스트 케이스와 교수자 양식에 맞춘 시나리오 설계",
+      "HTTP Request/Response, 파라미터, 쿠키/세션을 분석한 공격 흐름 정리",
+      "입력 검증, 파일 확장자·컨텐츠 타입 검증, CSRF 토큰 적용 등 조치안 문서화",
+    ],
+    tools: ["VMware", "Ubuntu Server", "Kali Linux", "HTTP 분석", "주요정보통신기반시설 가이드"],
   },
   {
     title: "클라우드 · 데이터 보안 설계",
     subtitle: "AWS KMS · AES-GCM · PII Masking",
     headline: "데이터 흐름에 맞춘 암복호화·키 관리와 PoC 구축",
     description:
-      "SecureDoc Cloud 프로젝트처럼 PII 마스킹, AES-GCM, AWS KMS를 결합해 개인정보 흐름을 안전하게 설계하고, Docker 기반 PoC 환경으로 검증합니다.",
+      "Lockument(SecureDoc Cloud PoC)처럼 PII 마스킹, AES-GCM, AWS KMS를 결합해 개인정보 흐름을 안전하게 설계하고, Docker 기반 PoC 환경으로 검증합니다.",
     bullets: ["AWS KMS + AES-GCM 키 관리 플로우", "문서 포맷별 PII 정책 설계", "PoC 환경 구성 및 테스트 자동화"],
     tools: ["AWS KMS", "AES-GCM", "Docker"],
   },

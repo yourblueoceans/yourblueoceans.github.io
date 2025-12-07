@@ -24,39 +24,54 @@ const strengths = [
 const AboutSection: React.FC = () => {
   return (
     <motion.section id="about-details" className={sectionClass} {...sectionMotion}>
-      <div className={`${innerClass} md:grid md:grid-cols-[minmax(0,1.5fr)_minmax(0,1.1fr)] md:items-start md:gap-12`}>
-        <div className="space-y-5">
-          <p className={overline}>ABOUT</p>
-          <h2 className={`${heading2} text-[clamp(1.9rem,3vw,2.3rem)] text-balance`}>비전공에서 클라우드 보안으로, 고객 경험을 이해하는 보안컨설턴트 지망생</h2>
-          <div className="section-lead mt-3 space-y-3 text-base leading-relaxed text-slate-700 md:text-[1.08rem]">
-            <p>비전공에서 시작해 항공사 현장 운영과 해외 경험을 거쳐 보안으로 전환했습니다. 현재는 웹 취약점 진단과 클라우드·인프라 보안을 두 축으로 실습을 이어가고 있습니다.</p>
-            <p>장기적으로는 고객 환경을 깊이 이해하고 제안까지 책임지는 보안컨설턴트형 엔지니어를 지향합니다.</p>
+      <div className={`${innerClass} space-y-12 lg:grid lg:grid-cols-[minmax(0,1.8fr)_minmax(0,1fr)] lg:items-stretch lg:gap-14 lg:space-y-0`}>
+        <div className="space-y-10">
+          <div className="space-y-5">
+            <p className={overline}>ABOUT</p>
+            <h2 className={`${heading2} text-[clamp(1.9rem,3vw,2.3rem)] text-balance`}>비전공에서 클라우드 보안으로, 고객 경험을 이해하는 보안컨설턴트 지망생</h2>
+            <div className="section-lead mt-3 space-y-3 text-base leading-relaxed text-slate-700 md:text-[1.08rem]">
+              <p>비전공에서 시작해 항공사 현장 운영과 해외 경험을 거쳐 보안으로 전환했습니다. 현재는 웹 취약점 진단과 클라우드·인프라 보안을 두 축으로 실습을 이어가고 있습니다.</p>
+              <p>장기적으로는 고객 환경을 깊이 이해하고 제안까지 책임지는 보안컨설턴트형 엔지니어를 지향합니다.</p>
+            </div>
+            <div className={`${bodyText} mt-6 space-y-5 text-[1.02rem] leading-relaxed text-slate-700`}>
+              <p>
+                대전대학교 경영학과 재학 중 대한항공 지상직으로 근무하며 비정상 상황 대응, 부서 간 협업, 고객 동선 관리 등을 경험했습니다. 이 과정에서{" "}
+                <span className="font-semibold text-[var(--color-text-strong)]">위기 대응 · 커뮤니케이션 · 조정 능력</span>을 크게 키웠습니다.
+              </p>
+              <p>
+                이후 미국 생활과 온라인 비즈니스 운영을 거치며 데이터 보호의 중요성을 체감해{" "}
+                <span className="font-semibold text-[var(--color-text-strong)]">클라우드 보안·정보보호</span>로 전환했습니다. 현재는 한국폴리텍대학 클라우드보안과 하이테크 과정에서 클라우드 보안, 네트워크 보안, Web VAPT, Docker, AWS 등을 실습 중심으로 학습하고 있습니다.
+              </p>
+              <p>
+                <span className="font-semibold text-[var(--color-text-strong)]">Lockument(SecureDoc Cloud PoC)</span>, <span className="font-semibold text-[var(--color-text-strong)]">Drop the Port</span>,{" "}
+                <span className="font-semibold text-[var(--color-text-strong)]">Web VAPT Lab</span>(웹 취약점 분석) 프로젝트를 통해 요구사항 정의 → 설계 → 구현 → 테스트 → 리포트 → 발표까지 전체 컨설팅 워크플로우를 반복했습니다. 이 경험을 바탕으로 “고객 환경을 이해하는 보안컨설턴트”로 성장하는 것이 목표입니다.
+              </p>
+            </div>
           </div>
-          <div className={`${bodyText} mt-6 space-y-5 text-[1.02rem] leading-relaxed text-slate-700`}>
-            <p>
-              대전대학교 경영학과 재학 중 대한항공 지상직으로 근무하며 비정상 상황 대응, 부서 간 협업, 고객 동선 관리 등을 경험했습니다. 이 과정에서{" "}
-              <span className="font-semibold text-[var(--color-text-strong)]">위기 대응 · 커뮤니케이션 · 조정 능력</span>을 크게 키웠습니다.
-            </p>
-            <p>
-              이후 미국 생활과 온라인 비즈니스 운영을 거치며 데이터 보호의 중요성을 체감해{" "}
-              <span className="font-semibold text-[var(--color-text-strong)]">클라우드 보안·정보보호</span>로 전환했습니다. 현재는 한국폴리텍대학 클라우드보안과 하이테크 과정에서 클라우드 보안, 네트워크 보안, Web VAPT, Docker, AWS 등을 실습 중심으로 학습하고 있습니다.
-            </p>
-            <p>
-              <span className="font-semibold text-[var(--color-text-strong)]">SecureDoc Cloud</span>, <span className="font-semibold text-[var(--color-text-strong)]">Drop the Port</span>,{" "}
-              <span className="font-semibold text-[var(--color-text-strong)]">Web VAPT Lab</span>(웹 취약점 분석) 프로젝트를 통해 요구사항 정의 → 설계 → 구현 → 테스트 → 리포트 → 발표까지 전체 컨설팅 워크플로우를 반복했습니다. 이 경험을 바탕으로 “고객 환경을 이해하는 보안컨설턴트”로 성장하는 것이 목표입니다.
-            </p>
+
+          <div className="space-y-6">
+            <p className={overline}>STRENGTHS</p>
+            <div className="grid gap-5 sm:grid-cols-2">
+              {strengths.map((item) => (
+                <div key={item.title} className={`${cardClass} min-h-[200px]`}>
+                  <h3 className="text-[1.1rem] font-semibold text-[var(--color-text-strong)]">{item.title}</h3>
+                  <p className={`mt-3 ${captionText} text-[0.98rem] leading-relaxed`}>{item.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 space-y-6 md:mt-0">
-          <p className={overline}>STRENGTHS</p>
-          <div className="grid gap-5 sm:grid-cols-2">
-            {strengths.map((item) => (
-              <div key={item.title} className={`${cardClass} min-h-[200px]`}>
-                <h3 className="text-[1.1rem] font-semibold text-[var(--color-text-strong)]">{item.title}</h3>
-                <p className={`mt-3 ${captionText} text-[0.98rem] leading-relaxed`}>{item.body}</p>
-              </div>
-            ))}
+        <div className="flex items-end justify-center rounded-[2.2rem] bg-gradient-to-b from-slate-900/85 via-indigo-900/80 to-slate-950/90 p-8 shadow-2xl ring-1 ring-white/10 lg:mt-0">
+          <div className="flex w-full max-w-[360px] flex-col items-center space-y-6 text-center text-slate-200">
+            <div className="space-y-1 text-xs font-semibold uppercase tracking-[0.45em] text-indigo-200/80">
+              <p>Sangwon Suh</p>
+              <p className="text-[0.65rem]">Security Consultant in training</p>
+            </div>
+            <p className="text-sm font-medium text-slate-200">Cloud Security &amp; Web VAPT · 고객 환경을 이해하는 컨설턴트형 엔지니어</p>
+            <div className="relative flex w-full items-end justify-center">
+              <img src="/itsme.png" alt="Sangwon Suh full body profile" className="w-full max-w-[320px] lg:max-w-[360px] object-contain drop-shadow-[0_30px_45px_rgba(15,23,42,0.6)]" />
+            </div>
           </div>
         </div>
       </div>

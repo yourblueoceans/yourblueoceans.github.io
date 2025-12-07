@@ -37,7 +37,7 @@ const Hero: React.FC<HeroProps> = ({ onViewProjects, onDownloadResumeKr }) => {
   ];
 
   const metrics = [
-    { label: "Capstone", value: "SecureDoc Cloud 금상", caption: "PII 보안 SaaS" },
+    { label: "Capstone", value: "Lockument 금상", caption: "SecureDoc Cloud PoC" },
     { label: "Reports", value: "12+", caption: "웹 취약점/인프라 문서화" },
     { label: "Certs", value: "정보보안기사, CCST", caption: "보안 & 네트워크" },
   ];

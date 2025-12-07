@@ -26,7 +26,7 @@ export const copy = {
       },
       {
         label: "Highlight",
-        value: "2025 SecureDoc Cloud 캡스톤 금상",
+        value: "2025 Lockument(SecureDoc Cloud PoC) 캡스톤 금상",
       },
     ],
     ctaNote: "English summary available below.",
@@ -38,12 +38,12 @@ export const copy = {
       },
       subtitle: "Aspiring Security Consultant & Cloud Security Engineer.",
       body:
-        "Web VAPT, 클라우드 보안, 사내형 네트워크 인프라를 직접 설계·실습하며 고객 환경을 이해하는 주니어 정보보안 엔지니어입니다. SecureDoc Cloud, Drop the Port, Web VAPT Lab(웹 취약점 분석) 프로젝트를 통해 설계–테스트–리포트–발표까지 이어지는 컨설팅 워크플로우를 경험했습니다.",
+        "Web VAPT, 클라우드 보안, 사내형 네트워크 인프라를 직접 설계·실습하며 고객 환경을 이해하는 주니어 정보보안 엔지니어입니다. Lockument(SecureDoc Cloud PoC), Drop the Port, Web VAPT Lab(웹 취약점 분석) 프로젝트를 통해 설계–테스트–리포트–발표까지 이어지는 컨설팅 워크플로우를 경험했습니다.",
     },
     en: {
       headline: "Aspiring Security Consultant & Cloud Security Engineer.",
       body:
-        "Security Consultant in training focusing on Web VAPT, Cloud & Infra Security, and Security Solution PoC through SecureDoc Cloud, Drop the Port, and Web Vulnerability Analysis projects.",
+        "Security Consultant in training focusing on Web VAPT, Cloud & Infra Security, and Security Solution PoC through Lockument (SecureDoc Cloud PoC), Drop the Port, and Web Vulnerability Analysis projects.",
     },
   },
   about: {
@@ -68,7 +68,7 @@ export const copy = {
       ],
       [
         { text: "공부 과정에서 특히 의미 있었던 것은 " },
-        { text: "SecureDoc Cloud, Drop the Port, Web VAPT Lab(웹 취약점 분석)", highlight: true },
+        { text: "Lockument(SecureDoc Cloud PoC), Drop the Port, Web VAPT Lab(웹 취약점 분석)", highlight: true },
         { text: " 프로젝트입니다. 단순 실습을 넘어 요구사항 정의 → 설계 → 구현 → 진단/개선 → 보고서 작성까지 보안컨설턴트의 실제 업무 흐름을 의식하며 진행했습니다." },
       ],
       [
@@ -102,9 +102,9 @@ export const copy = {
   },
   projects: {
     eyebrow: "PROJECTS",
-    title: "SecureDoc Cloud · Drop the Port · Web VAPT Lab",
+    title: "Lockument · Drop the Port · Web VAPT Lab",
     subtitle:
-      "SecureDoc Cloud, Drop the Port, Web VAPT Lab(웹 취약점 분석) 프로젝트를 통해 애플리케이션·웹·인프라 보안을 균형 있게 경험했습니다.",
+      "Lockument(SecureDoc Cloud PoC), Drop the Port, Web VAPT Lab(웹 취약점 분석) 프로젝트를 통해 애플리케이션·웹·인프라 보안을 균형 있게 경험했습니다.",
   },
   experience: {
     eyebrow: "EXPERIENCE & CERTS",
