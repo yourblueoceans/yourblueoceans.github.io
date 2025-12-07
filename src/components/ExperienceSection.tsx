@@ -1,22 +1,23 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { bodyText, cardClass, captionText, heading2, innerClass, overline, sectionClass, sectionMotion } from "../ui/tokens";
 
 const securityProjects = [
   {
     period: "2025.08.18–2025.10.30",
-    title: "Lockument (SecureDoc Cloud PoC) – PII 마스킹 & 암복호화 SaaS",
-    desc: "2인 팀장 · 캡스톤 금상. AWS KMS + AES-GCM 기반 문서 암복호화 파이프라인을 설계·구현하고, PoC 테스트·리포트·발표까지 총괄했습니다.",
+    title: "Lockument (SecureDoc Cloud PoC)",
+    desc: "AWS KMS + AES-GCM 문서 암복호화 파이프라인을 설계·구현하고 팀장을 맡아 PoC 테스트·리포트·발표를 총괄.",
   },
   {
     period: "2025.08.21–11.03",
     title: "Drop the Port – 사내형 네트워크 & 방화벽 설계",
-    desc: "4인 팀장. VLAN, 방화벽, DMZ를 재설계해 서비스/관리망을 분리하고 패킷 캡처로 정책을 검증했습니다.",
+    desc: "세그멘테이션·방화벽 정책·DMZ 재설계를 통해 서비스/관리망을 분리하고 패킷 캡처로 정책을 검증.",
   },
   {
     period: "2025.11–12",
     title: "Web VAPT Lab (웹 취약점 분석)",
-    desc: "Upload/XSS/CSRF 취약점을 재현하고 조치 리포트·발표 자료까지 완성한 Web VAPT 프로젝트입니다.",
+    desc: "VMware 기반 Ubuntu 웹 서버·Kali 공격 서버로 Upload/XSS/CSRF 시나리오를 재현하고 조치 리포트를 작성.",
   },
 ];
 
@@ -24,17 +25,17 @@ const customerExperience = [
   {
     period: "2025.03–2026.02",
     title: "한국폴리텍대학 대전캠퍼스 – 클라우드보안과 (하이테크)",
-    desc: "클라우드 보안, 네트워크 보안, Web VAPT, Docker, Linux 실습 프로젝트를 수행하며 Lockument 캡스톤, 웹 취약점 진단, 사내형 네트워크 구축 등 컨설팅 워크플로우를 경험했습니다.",
+    desc: "클라우드 보안, 네트워크 보안, Web VAPT, Docker, Linux 실습 프로젝트 수행. Lockument, Drop the Port, Web VAPT Lab을 통해 컨설팅 워크플로우 반복.",
   },
   {
     period: "2023.02–2023.09",
-    title: "대한항공 (지상직)",
-    desc: "공항 현장 운영과 고객 응대, 비정상 상황 대응 시 여러 부서와 협업하며 커뮤니케이션 역량을 다졌습니다.",
+    title: "대한항공 (미주본부 · 지상직)",
+    desc: "미주본부 여객 서비스를 지원하며 비정상 상황 대응, 고객 동선 조율, 다부서 협업을 경험.",
   },
   {
     period: "2022.02–2023.02",
     title: "Apotheco Pharmacy (Pleasanton, CA)",
-    desc: "미국 캘리포니아 Pleasanton 소재 Apotheco Pharmacy에서 환자 응대, 처방 관련 정보 확인 지원, 매장 운영 보조를 수행하며 영어 기반 고객 커뮤니케이션과 실사용자 관점의 경험을 쌓았습니다.",
+    desc: "환자 응대, 처방 정보 확인, 매장 운영 보조를 담당하며 영어 기반 고객 커뮤니케이션을 강화.",
   },
   {
     period: "2020.12–2021.09",
@@ -49,20 +50,26 @@ const customerExperience = [
 ];
 
 const certs = [
-  "정보보안기사",
-  "CISCO CCST",
-  "정보처리기사(필기 합격)",
-  "네트워크관리사 2급",
-  "기타 보유 자격 (한국사, 컴활 등)",
+  { name: "정보보안기사", detail: "국내 정보보안 이론·법규·기술 역량 검증", code: "No. 23-****-1023" },
+  { name: "Cisco CCST", detail: "네트워크 기초/장비 운용 역량", code: "No. 24-****-4421" },
+  { name: "정보처리기사(필기)", detail: "소프트웨어 공학·데이터 구조 기초 역량", code: "합격" },
+  { name: "네트워크관리사 2급", detail: "네트워크 구성·장애 대응 실무", code: "No. 21-****-3321" },
+  { name: "한국사 1급 · TOEIC SPEAKING IH", detail: "비즈니스 커뮤니케이션/문화 이해", code: "-" },
 ];
 
 const ExperienceSection: React.FC = () => {
+  const [openCustomer, setOpenCustomer] = useState<string | null>(customerExperience[0]?.title ?? null);
+
+  const toggleCustomer = (title: string) => {
+    setOpenCustomer((prev) => (prev === title ? null : title));
+  };
+
   return (
-    <motion.section id="experience" className={sectionClass} {...sectionMotion}>
+    <motion.section id="experience" className={`${sectionClass} bg-white`} {...sectionMotion}>
       <div className={`${innerClass} md:grid md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:gap-12`}>
         <div>
           <p className={overline}>EXPERIENCE</p>
-          <h2 className={`${heading2} text-[clamp(1.9rem,3vw,2.3rem)] font-extrabold tracking-tight`}>경험과 학습 경로</h2>
+          <h2 className={`${heading2} text-[clamp(2rem,3.2vw,2.6rem)] font-extrabold tracking-tight`}>경험과 학습 경로</h2>
           <p className={`${bodyText} mt-3 max-w-[720px] text-base leading-relaxed text-slate-700 md:text-[1.05rem]`}>
             보안 프로젝트 타임라인과 고객 경험 타임라인을 분리해 역량 축적 과정을 투명하게 정리했습니다.
           </p>
@@ -81,24 +88,56 @@ const ExperienceSection: React.FC = () => {
         <div className="mt-10 space-y-6 md:mt-0">
           <div className="space-y-4">
             <p className={overline}>CUSTOMER &amp; OPERATIONS</p>
-            <div className="space-y-4">
-              {customerExperience.map((item) => (
-                <div key={item.title} className="rounded-2xl border border-slate-200 bg-white/90 p-5">
-                  <p className="text-[0.75rem] font-semibold uppercase tracking-[0.3em] text-indigo-500">{item.period}</p>
-                  <p className="text-[1.05rem] font-semibold text-slate-900">{item.title}</p>
-                  <p className="text-[1.02rem] leading-relaxed text-slate-600">{item.desc}</p>
-                </div>
-              ))}
+            <div className="space-y-3">
+              {customerExperience.map((item) => {
+                const isOpen = openCustomer === item.title;
+                return (
+                  <article key={item.title} className="rounded-2xl border border-slate-200 bg-white/90">
+                    <button
+                      type="button"
+                      className="flex w-full flex-col gap-2 px-4 py-4 text-left"
+                      aria-expanded={isOpen}
+                      onClick={() => toggleCustomer(item.title)}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.3em] text-indigo-500">{item.period}</p>
+                          <p className="text-[1.05rem] font-semibold text-slate-900">{item.title}</p>
+                        </div>
+                        <ChevronDown className={`h-4 w-4 text-slate-500 transition ${isOpen ? "rotate-180" : ""}`} />
+                      </div>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.p
+                          key={`${item.title}-body`}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2, ease: "easeInOut" }}
+                          className="px-4 pb-4 text-[1.02rem] leading-relaxed text-slate-600"
+                        >
+                          {item.desc}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </article>
+                );
+              })}
             </div>
           </div>
           <div className="space-y-3">
             <p className={overline}>CERTIFICATIONS</p>
             <h3 className="text-[var(--fs-card-title)] font-semibold text-[var(--color-text-strong)]">자격증 &amp; 배지</h3>
-            <div className="flex flex-wrap gap-2 text-sm text-[var(--color-text)]">
+            <div className="flex flex-wrap gap-3 text-sm text-[var(--color-text)]">
               {certs.map((cert) => (
-                <span key={cert} className="rounded-full border border-slate-200 bg-white/80 px-3 py-1">
-                  {cert}
-                </span>
+                <div key={cert.name} className="group relative rounded-full border border-slate-200 bg-white/80 px-4 py-1.5 text-sm font-semibold text-slate-700">
+                  {cert.name}
+                  <div className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 hidden w-52 -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-3 text-xs font-medium text-slate-600 shadow-lg group-hover:block">
+                    <p>{cert.detail}</p>
+                    <p className="mt-1 text-[0.7rem] uppercase tracking-[0.3em] text-slate-400">{cert.code}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>

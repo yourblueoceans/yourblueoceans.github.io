@@ -62,17 +62,25 @@ const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex items-end justify-center rounded-[2.2rem] bg-gradient-to-b from-slate-900/85 via-indigo-900/80 to-slate-950/90 p-8 shadow-2xl ring-1 ring-white/10 lg:mt-0">
-          <div className="flex w-full max-w-[360px] flex-col items-center space-y-6 text-center text-slate-200">
-            <div className="space-y-1 text-xs font-semibold uppercase tracking-[0.45em] text-indigo-200/80">
-              <p>Sangwon Suh</p>
-              <p className="text-[0.65rem]">Security Consultant in training</p>
+        <div className="relative rounded-[2.4rem] shadow-2xl ring-1 ring-white/10 lg:mt-0">
+          <figure className="relative flex min-h-[520px] flex-col items-center justify-between overflow-hidden rounded-[2.4rem]">
+            <div className="absolute inset-0 bg-gradient-to-b from-[#1f1634] via-[#241a3f] to-[#0b0f1a]" />
+            <div className="relative flex w-full flex-col items-center gap-4 px-8 pt-10 text-center text-slate-200">
+              <div className="space-y-1 text-xs font-semibold uppercase tracking-[0.45em] text-indigo-200/80">
+                <p>Sangwon Suh</p>
+                <p className="text-[0.65rem]">Security Consultant in Training</p>
+              </div>
+              <p className="text-sm font-medium text-slate-200">Cloud Security &amp; Web VAPT · 고객 환경을 이해하는 컨설턴트형 엔지니어</p>
             </div>
-            <p className="text-sm font-medium text-slate-200">Cloud Security &amp; Web VAPT · 고객 환경을 이해하는 컨설턴트형 엔지니어</p>
-            <div className="relative flex w-full items-end justify-center">
-              <img src="/itsme.png" alt="Sangwon Suh full body profile" className="w-full max-w-[320px] lg:max-w-[360px] object-contain drop-shadow-[0_30px_45px_rgba(15,23,42,0.6)]" />
-            </div>
-          </div>
+            <img
+              src="/itsme.png"
+              alt="Sangwon Suh full body profile"
+              className="relative mx-auto mt-auto w-full max-w-[340px] object-contain drop-shadow-[0_40px_60px_rgba(15,23,42,0.7)] lg:max-w-[380px]"
+            />
+            <figcaption className="relative w-full px-8 pb-6 text-center text-xs font-semibold uppercase tracking-[0.35em] text-indigo-200/80">
+              보안컨설턴트를 향한 여정
+            </figcaption>
+          </figure>
         </div>
       </div>
     </motion.section>

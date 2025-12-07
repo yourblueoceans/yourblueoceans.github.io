@@ -16,8 +16,9 @@ const profileMetrics = [
 
 const HeroSection: React.FC = () => (
   <section id="about" className="hero">
-    <div className="hero-cube">
-      <img src="/security-cube2.png" alt="Cloud security crystal cube" className="animate-security-cube" />
+    <div className="hero-cube" aria-hidden="true">
+      <div className="hero-cube-glow" />
+      <img src="/security-cube2.png" alt="Cloud security crystal cube" className="animate-security-cube mix-blend-screen" />
     </div>
     <div className="hero-inner">
       <div className="hero-layout">

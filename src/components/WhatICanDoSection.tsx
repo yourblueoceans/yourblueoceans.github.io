@@ -10,6 +10,7 @@ type Service = {
   description: string;
   bullets: string[];
   tools: string[];
+  relatedProject: { id: string; label: string };
 };
 
 const services: Service[] = [
@@ -25,6 +26,7 @@ const services: Service[] = [
       "입력 검증, 파일 확장자·컨텐츠 타입 검증, CSRF 토큰 적용 등 조치안 문서화",
     ],
     tools: ["VMware", "Ubuntu Server", "Kali Linux", "HTTP 분석", "주요정보통신기반시설 가이드"],
+    relatedProject: { id: "webvapt", label: "Web VAPT Lab (웹 취약점 분석)" },
   },
   {
     title: "클라우드 · 데이터 보안 설계",
@@ -34,6 +36,7 @@ const services: Service[] = [
       "Lockument(SecureDoc Cloud PoC)처럼 PII 마스킹, AES-GCM, AWS KMS를 결합해 개인정보 흐름을 안전하게 설계하고, Docker 기반 PoC 환경으로 검증합니다.",
     bullets: ["AWS KMS + AES-GCM 키 관리 플로우", "문서 포맷별 PII 정책 설계", "PoC 환경 구성 및 테스트 자동화"],
     tools: ["AWS KMS", "AES-GCM", "Docker"],
+    relatedProject: { id: "securedoc", label: "Lockument (SecureDoc Cloud PoC)" },
   },
   {
     title: "네트워크 & 인프라 보안",
@@ -43,6 +46,7 @@ const services: Service[] = [
       "서비스망/관리망/DMZ를 분리하고 방화벽 정책·패킷 캡처를 통해 정상/비정상 트래픽을 검증, 요구사항과 결과를 문서화합니다.",
     bullets: ["세그먼트 디자인 & ACL 정의", "방화벽/IDS 정책 설정 및 테스트", "패킷 캡처 근거 기반 보고"],
     tools: ["Cisco IOS", "TrusGuard", "Wireshark"],
+    relatedProject: { id: "droptheport", label: "Drop the Port" },
   },
   {
     title: "Security PoC & Pre-sales 협업",
@@ -52,6 +56,7 @@ const services: Service[] = [
       "Security PoC 관점에서 요구사항을 정리하고 테스트·결과 리포트를 작성하며, 프리세일즈 협업까지 고려한 문서를 준비합니다.",
     bullets: ["요구사항 정의 → 테스트 → 결과 정리", "보안 리포트·제안서·발표 슬라이드 제작", "이해관계자별 커뮤니케이션 정리"],
     tools: ["Google Slides", "Notion", "MS Office"],
+    relatedProject: { id: "securedoc", label: "Lockument (SecureDoc Cloud PoC)" },
   },
 ];
 
@@ -128,6 +133,13 @@ const WhatICanDoSection: React.FC = () => {
                               </span>
                             ))}
                           </div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">관련 프로젝트</p>
+                          <a
+                            href={`#case-study-${service.relatedProject.id}`}
+                            className="inline-flex items-center text-sm font-semibold text-indigo-600 underline-offset-2 hover:underline"
+                          >
+                            {service.relatedProject.label} → Case Studies
+                          </a>
                         </div>
                       </div>
                     </motion.div>
