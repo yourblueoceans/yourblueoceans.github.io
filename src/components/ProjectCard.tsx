@@ -14,7 +14,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </div>
 
       <div className="mt-5 space-y-1.5">
-        <h3 className="text-xl font-semibold text-white">{project.name}</h3>
+        <h3 className="text-xl font-semibold text-white">{project.title}</h3>
         <p className="text-sm text-slate-400">{project.subtitle}</p>
       </div>
 

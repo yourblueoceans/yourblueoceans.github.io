@@ -10,12 +10,13 @@ export type ProjectDeliverable = {
 
 export type Project = {
   id: ProjectId;
-  name: string;
+  title: string;
+  icon: string;
   subtitle: string;
   period: string;
   teamInfo: string;
   highlight: string;
-  thumbnail?: string;
+  image?: string;
   tags: string[];
   problem: string[];
   approach: string[];
@@ -28,12 +29,13 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "lockument",
-    name: "Lockument (SecureDoc Cloud PoC)",
+    title: "Lockument (SecureDoc Cloud PoC)",
+    icon: "🔐",
     subtitle: "PII 마스킹 & AES-GCM 암복호화 기반 문서 보안 SaaS PoC",
     period: "2025.08.18–2025.10.30",
     teamInfo: "2인 팀장, 캡스톤 금상",
     highlight: "주민번호·계좌 등 PII 자동 탐지·마스킹 및 AWS KMS 연동 AES-GCM 암복호화 PoC 완성",
-    thumbnail: "/assets/lockument-core.png",
+    image: "/assets/lockument-core.png",
     tags: ["PII 마스킹", "AES-GCM", "AWS KMS", "Docker", "React/Flask"],
     problem: [
       "문서 업로드 직후 주민번호·계좌·연락처 등 PII 필드를 자동 탐지·마스킹해 달라는 요구가 있었습니다.",
@@ -75,12 +77,13 @@ export const projects: Project[] = [
   },
   {
     id: "dropThePort",
-    name: "Drop the Port",
+    title: "Drop the Port",
+    icon: "🌐",
     subtitle: "세그멘테이션 기반 사내 네트워크 보안 아키텍처",
     period: "2025.08.21–11.03",
     teamInfo: "4인 팀장, CB 정보통신(가상의 스타트업)",
     highlight: "서비스/업무/DMZ 세그먼트 분리와 40+ 방화벽 정책으로 사내 네트워크 재설계",
-    thumbnail: "/assets/security-cube.png",
+    image: "/assets/security-cube.png",
     tags: ["사내형 네트워크 인프라", "세그멘테이션", "방화벽 정책", "VLAN", "DMZ"],
     problem: [
       "CB 정보통신(가상) 서비스망·관리망이 혼재되어 보안 경계가 붕괴된 상태였습니다.",
@@ -129,12 +132,13 @@ export const projects: Project[] = [
   },
   {
     id: "webVapt",
-    name: "Web VAPT Lab (웹 취약점 분석)",
+    title: "Web VAPT Lab (웹 취약점 분석)",
+    icon: "🛡️",
     subtitle: "Upload/XSS/CSRF 시나리오 기반 웹 취약점 재현 및 조치 분석",
     period: "2025.11.12",
     teamInfo: "1인 수행, 실습 프로젝트",
     highlight: "VMware 기반 Ubuntu·Kali 환경에서 Upload/XSS/CSRF 재현 및 조치 보고서 작성",
-    thumbnail: "/assets/security-cube2.png",
+    image: "/assets/security-cube2.png",
     tags: ["File Upload", "XSS", "CSRF", "Directory Indexing", "OWASP Top 10"],
     problem: [
       "교수자 제공 교안과 주통기에 맞춰 Upload/XSS/CSRF 취약점을 재현해야 했습니다.",

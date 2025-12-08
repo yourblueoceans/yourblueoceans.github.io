@@ -39,8 +39,8 @@ const ProjectAccordion: React.FC = () => {
             <div className="flex w-full flex-col gap-5 rounded-[2rem] px-4 py-4 text-left transition duration-200 group-hover:scale-[1.01] group-hover:bg-white/70 group-hover:shadow-[0_20px_60px_rgba(15,23,42,0.08)] md:flex-row md:items-center md:gap-6">
               <div className="flex w-full items-center gap-4 md:w-auto md:min-w-[140px]">
                 <div className="relative h-[110px] w-[120px] overflow-hidden rounded-2xl border border-violet-200/60 bg-gradient-to-br from-violet-100/80 to-indigo-100/50 shadow-[0_20px_60px_rgba(99,102,241,0.25)]">
-                  {project.thumbnail ? (
-                    <img src={project.thumbnail} alt={project.name} className="h-full w-full object-cover object-center" loading="lazy" />
+                  {project.image ? (
+                    <img src={project.image} alt={project.title} className="h-full w-full object-cover object-center" loading="lazy" />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center text-violet-400">
                       <ImageIcon className="h-8 w-8" />
@@ -53,8 +53,13 @@ const ProjectAccordion: React.FC = () => {
                 <p className="text-xs font-semibold uppercase tracking-[0.35em] text-indigo-500">
                   {project.period} · {project.teamInfo}
                 </p>
-                <div>
-                  <h3 className="text-[clamp(1.3rem,2.1vw,1.65rem)] font-semibold text-slate-900">{project.name}</h3>
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-2 text-[clamp(1.3rem,2.1vw,1.65rem)] font-semibold text-slate-900">
+                    <span role="img" aria-hidden="true" className="text-2xl">
+                      {project.icon}
+                    </span>
+                    <span>{project.title}</span>
+                  </div>
                   <p className="text-base text-slate-600">{project.subtitle}</p>
                 </div>
                 <p className="text-sm font-medium text-slate-700">{project.highlight}</p>

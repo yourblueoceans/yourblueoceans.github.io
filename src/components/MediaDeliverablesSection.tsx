@@ -37,7 +37,7 @@ const MediaDeliverablesSection: React.FC = () => {
                     <p className="text-xs font-semibold uppercase tracking-[0.35em] text-indigo-500">
                       {project.period} · {project.teamInfo}
                     </p>
-                    <h3 className="text-[clamp(1.3rem,2.2vw,1.65rem)] font-semibold text-slate-900">{project.name}</h3>
+                    <h3 className="text-[clamp(1.3rem,2.2vw,1.65rem)] font-semibold text-slate-900">{project.title}</h3>
                     <p className="text-sm text-slate-500">{project.subtitle}</p>
                   </div>
                   <div className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600">
