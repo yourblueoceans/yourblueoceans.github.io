@@ -17,7 +17,7 @@ const MediaDeliverablesSection: React.FC = () => {
   const toggle = (id: string) => setOpenId((prev) => (prev === id ? null : id));
 
   return (
-    <motion.section id="media-deliverables" className={`${sectionClass} bg-slate-50`} {...sectionMotion}>
+    <motion.section id="downloads" className={`${sectionClass} bg-slate-50`} {...sectionMotion}>
       <div className={`${innerClass} flex flex-col items-center gap-10`}>
         <div className="max-w-[760px] space-y-4 text-center">
           <p className={overline}>MEDIA &amp; DELIVERABLES</p>
