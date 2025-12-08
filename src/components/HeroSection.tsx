@@ -1,6 +1,6 @@
 import React from "react";
 
-const keywords = ["Security Consultant in Training", "Lockument (SecureDoc Cloud PoC)", "Drop the Port", "Web VAPT · Upload/XSS/CSRF"];
+const keywords = ["Lockument · PII Masking", "Drop the Port · Segmentation", "Web VAPT Lab · Upload/XSS/CSRF"];
 
 const profileFacts = [
   { label: "Program", value: "폴리텍 대전 · 클라우드보안과" },
@@ -18,7 +18,9 @@ const HeroSection: React.FC = () => (
   <section id="about" className="hero">
     <div className="hero-cube" aria-hidden="true">
       <div className="hero-cube-glow" />
-      <img src="/security-cube2.png" alt="Cloud security crystal cube" className="animate-security-cube mix-blend-screen" />
+      <div className="hero-cube-orbit">
+        <img src="/security-cube2.png" alt="Cloud security crystal cube" className="animate-security-cube mix-blend-screen" />
+      </div>
     </div>
     <div className="hero-inner">
       <div className="hero-layout">
@@ -31,11 +33,15 @@ const HeroSection: React.FC = () => (
             Security Consultant in training · Web VAPT · Cloud &amp; Infra Security · Security Solution PoC
           </p>
           <p className="hero-subtext hero-subtext-secondary max-w-[640px] leading-[1.75]">
-            <span className="font-semibold text-white">Web VAPT</span>, <span className="font-semibold text-white">Cloud Security</span>,{" "}
-            <span className="font-semibold text-white">Network Infra Security</span>를 직접 설계·실습하며 고객 환경을 이해하는 주니어 정보보안 엔지니어입니다.
+            <span className="font-semibold text-white">Web VAPT</span>, <span className="font-semibold text-white">Cloud/Data Security</span>,{" "}
+            <span className="font-semibold text-white">Network &amp; Infra</span> 역할을 빠르게 전환하며 고객 환경을 이해하는 주니어 정보보안 엔지니어입니다.
           </p>
           <p className="hero-subtext hero-subtext-secondary max-w-[640px] leading-[1.75]">
-            Lockument(SecureDoc Cloud PoC), Drop the Port, Web VAPT Lab(웹 취약점 분석) 프로젝트를 통해 설계–테스트–리포트–발표까지 이어지는 컨설팅 워크플로우를 반복했습니다.
+            대표 프로젝트 3개는{" "}
+            <a href="#case-studies" className="font-semibold text-white underline-offset-4 hover:underline">
+              Case Studies
+            </a>
+            에 Problem → Approach → Impact 순으로 정리했습니다. 이 섹션에서는 첫인상과 핵심 키워드만 전달하고, 세부 스토리는 아래에서 확인할 수 있습니다.
           </p>
           <div className="hero-tags">
             {keywords.map((label) => (
