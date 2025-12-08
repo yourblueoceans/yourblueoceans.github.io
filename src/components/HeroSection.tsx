@@ -15,7 +15,7 @@ const profileMetrics = [
 ];
 
 const HeroSection: React.FC = () => (
-  <section id="about" className="hero">
+  <section id="about" className="hero snap-start">
     <div className="hero-cube" aria-hidden="true">
       <div className="hero-cube-glow" />
       <div className="hero-cube-orbit">
@@ -26,20 +26,22 @@ const HeroSection: React.FC = () => (
       <div className="hero-layout">
         <div className="hero-text">
           <p className="hero-kicker">SECURITY CONSULTING &amp; CLOUD / WEB VAPT PORTFOLIO</p>
-          <h1 className="hero-title text-balance">
-            <span className="hero-title-main">74일간 AWS 기반 개인정보 보호 솔루션을 구축한,</span>
-            <span className="hero-title-accent">가장 빠르게 배우는 신입 서상원입니다</span>
+          <h1 className="hero-title">
+            <span className="hero-line">
+              <span className="hero-gradient">74일간 AWS 기반</span> 개인정보 보호 솔루션을 구축한,
+            </span>
+            <span className="hero-line">
+              <span className="hero-gradient">빠르게 배우는</span> 신입 보안지원자
+            </span>
+            <span className="hero-line">서상원입니다.</span>
           </h1>
-          <p className="hero-subheadline">
-            클라우드 보안·웹 취약점 진단으로 고객 환경을 이해하는 Security Consultant in training.
-          </p>
+          <p className="hero-subheadline">클라우드 보안·웹 취약점 진단으로 고객 환경을 이해하는 Security Consultant in training.</p>
           <p className="hero-subtext hero-subtext-secondary max-w-[640px] leading-[1.8]">
             Lockument(PII 마스킹 &amp; AES-GCM 암복호화), Drop the Port(네트워크 세그멘테이션), Web VAPT Lab(Upload/XSS/CSRF) 프로젝트를 통해 요구사항 정의 → 설계 → 테스트 → 리포트까지 PoC
             워크플로우를 반복했습니다.
           </p>
           <p className="hero-subtext hero-subtext-secondary max-w-[640px] leading-[1.8]">
-            AWS KMS와 AES-GCM으로 PoC 수준 문서 암복호화 파이프라인을 설계하고, 세그멘테이션/방화벽 정책과 Web VAPT 보고서를 교육·캡스톤 환경에서 완주하며 빠른 학습 속도를 증명했습니다. 세부
-            스토리는{" "}
+            AWS KMS와 AES-GCM으로 PoC 수준 문서 암복호화 파이프라인을 설계하고, 세그멘테이션/방화벽 정책·Web VAPT 보고서를 교육·캡스톤 환경에서 완주하며 빠른 학습 속도를 증명했습니다. 세부 스토리는{" "}
             <a href="#case-studies" className="font-semibold text-white underline-offset-4 hover:underline">
               Case Studies
             </a>
