@@ -1,7 +1,7 @@
 import React from "react";
-import { AlertTriangle, Cpu, FileDown, FileText, Image as ImageIcon, Route, Sparkles, UserCheck } from "lucide-react";
+import { AlertTriangle, Cpu, FileDown, FileText, Image as ImageIcon, Lock, Network, Route, Shield, Sparkles, UserCheck } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { projects, type Project } from "@/data/projects";
+import { projects, type Project, type ProjectId } from "@/data/projects";
 import { pillClass } from "@/ui/tokens";
 
 const deliverableIcons: Record<Project["deliverables"][number]["type"], React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
@@ -18,6 +18,12 @@ const sectionIconMap = {
   role: UserCheck,
   tech: Cpu,
 } as const;
+
+const projectIconMap: Record<ProjectId, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
+  lockument: Lock,
+  dropThePort: Network,
+  webVapt: Shield,
+};
 
 const SectionLabel: React.FC<{ icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; label: string }> = ({ icon: Icon, label }) => (
   <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
@@ -54,9 +60,12 @@ const ProjectAccordion: React.FC = () => {
                   {project.period} · {project.teamInfo}
                 </p>
                 <div className="flex flex-col gap-1">
-                  <div className="flex items-center gap-2 text-[clamp(1.3rem,2.1vw,1.65rem)] font-semibold text-slate-900">
-                    <span role="img" aria-hidden="true" className="text-2xl">
-                      {project.icon}
+                  <div className="flex items-center gap-3 text-[clamp(1.3rem,2.1vw,1.65rem)] font-semibold text-slate-900">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900/70 text-indigo-100 shadow-[0_15px_35px_rgba(15,23,42,0.45)]">
+                      {(() => {
+                        const IconGlyph = projectIconMap[project.id];
+                        return IconGlyph ? <IconGlyph className="h-5 w-5" /> : null;
+                      })()}
                     </span>
                     <span>{project.title}</span>
                   </div>

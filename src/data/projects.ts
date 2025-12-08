@@ -11,7 +11,6 @@ export type ProjectDeliverable = {
 export type Project = {
   id: ProjectId;
   title: string;
-  icon: string;
   subtitle: string;
   period: string;
   teamInfo: string;
@@ -30,7 +29,6 @@ export const projects: Project[] = [
   {
     id: "lockument",
     title: "Lockument (SecureDoc Cloud PoC)",
-    icon: "🔐",
     subtitle: "PII 마스킹 & AES-GCM 암복호화 기반 문서 보안 SaaS PoC",
     period: "2025.08.18–2025.10.30",
     teamInfo: "2인 팀장, 캡스톤 금상",
@@ -78,7 +76,6 @@ export const projects: Project[] = [
   {
     id: "dropThePort",
     title: "Drop the Port",
-    icon: "🌐",
     subtitle: "세그멘테이션 기반 사내 네트워크 보안 아키텍처",
     period: "2025.08.21–11.03",
     teamInfo: "4인 팀장, CB 정보통신(가상의 스타트업)",
@@ -133,7 +130,6 @@ export const projects: Project[] = [
   {
     id: "webVapt",
     title: "Web VAPT Lab (웹 취약점 분석)",
-    icon: "🛡️",
     subtitle: "Upload/XSS/CSRF 시나리오 기반 웹 취약점 재현 및 조치 분석",
     period: "2025.11.12",
     teamInfo: "1인 수행, 실습 프로젝트",

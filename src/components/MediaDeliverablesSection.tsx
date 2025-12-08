@@ -34,11 +34,9 @@ const MediaDeliverablesSection: React.FC = () => {
               <AccordionTrigger className="px-0">
                 <div className="flex w-full flex-col gap-2 py-4 text-left sm:flex-row sm:items-center sm:justify-between">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.35em] text-indigo-500">
-                      {project.period} · {project.teamInfo}
-                    </p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.35em] text-indigo-500">Project</p>
                     <h3 className="text-[clamp(1.3rem,2.2vw,1.65rem)] font-semibold text-slate-900">{project.title}</h3>
-                    <p className="text-sm text-slate-500">{project.subtitle}</p>
+                    <p className="text-sm text-slate-500">{project.highlight}</p>
                   </div>
                   <div className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600">
                     {project.deliverables.length} files

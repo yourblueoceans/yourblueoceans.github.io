@@ -2,11 +2,11 @@ import React from "react";
 import { Briefcase, GraduationCap, Store, FolderLock } from "lucide-react";
 import { experienceTimeline, type ExperienceItem } from "@/data/experience";
 
-const typeIconMap: Record<ExperienceItem["type"], { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; className: string }> = {
-  project: { icon: FolderLock, className: "bg-violet-500/20 text-violet-200" },
-  education: { icon: GraduationCap, className: "bg-sky-500/20 text-sky-200" },
-  work: { icon: Briefcase, className: "bg-slate-500/20 text-slate-200" },
-  business: { icon: Store, className: "bg-emerald-500/20 text-emerald-200" },
+const typeIconMap: Record<ExperienceItem["type"], { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; className: string; label: string }> = {
+  project: { icon: FolderLock, className: "bg-violet-500/20 text-violet-200", label: "PROJECT" },
+  education: { icon: GraduationCap, className: "bg-sky-500/20 text-sky-200", label: "EDUCATION" },
+  work: { icon: Briefcase, className: "bg-slate-500/20 text-slate-200", label: "WORK" },
+  business: { icon: Store, className: "bg-emerald-500/20 text-emerald-200", label: "BUSINESS" },
 };
 
 const ExperienceTimeline: React.FC = () => {
@@ -28,6 +28,9 @@ const ExperienceTimeline: React.FC = () => {
               <div className={`mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl ${meta.className}`}>
                 <Icon className="h-5 w-5" />
               </div>
+              <span className="mb-2 inline-flex items-center rounded-full border border-white/15 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-slate-200">
+                {meta.label}
+              </span>
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-indigo-300">{item.period}</p>
               <h3 className="mt-2 text-lg font-semibold text-white">{item.title}</h3>
               {item.subtitle && <p className="text-sm text-slate-300">{item.subtitle}</p>}
