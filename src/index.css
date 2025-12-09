@@ -57,6 +57,33 @@
     mask-image: radial-gradient(circle at center, black 0, black 55%, transparent 90%);
   }
 
+  .paint-pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.15em;
+    z-index: 0;
+  }
+
+  .paint-pill::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 -0.15em 0;
+    z-index: -1;
+    border-radius: 999px;
+    background: linear-gradient(120deg, rgba(125, 211, 252, 0.85), rgba(56, 189, 248, 0.85), rgba(167, 139, 250, 0.9));
+    box-shadow: 0 10px 35px rgba(56, 189, 248, 0.2);
+    transform: skewX(-8deg);
+  }
+
+  .paint-blob {
+    background:
+      radial-gradient(60% 60% at 30% 30%, rgba(56, 189, 248, 0.25), transparent),
+      radial-gradient(50% 50% at 70% 60%, rgba(139, 92, 246, 0.22), transparent);
+    filter: blur(32px);
+    transform: rotate(-6deg);
+  }
+
   html {
     font-family: var(--font-sans);
     scroll-behavior: smooth;
