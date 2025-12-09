@@ -1,20 +1,18 @@
 import React from "react";
-import { Briefcase, GraduationCap, Store, FolderLock } from "lucide-react";
-import { experienceTimeline, type ExperienceItem } from "@/data/experience";
+import { Briefcase, Activity } from "lucide-react";
+import { experiences, type ExperienceItem, type ExperienceType } from "@/data/experience";
 
-const typeIconMap: Record<ExperienceItem["type"], { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; className: string; label: string }> = {
-  project: { icon: FolderLock, className: "bg-violet-500/20 text-violet-200", label: "PROJECT" },
-  education: { icon: GraduationCap, className: "bg-sky-500/20 text-sky-200", label: "EDUCATION" },
+const typeIconMap: Record<ExperienceType, { icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; className: string; label: string }> = {
   work: { icon: Briefcase, className: "bg-slate-500/20 text-slate-200", label: "WORK" },
-  business: { icon: Store, className: "bg-emerald-500/20 text-emerald-200", label: "BUSINESS" },
+  activity: { icon: Activity, className: "bg-emerald-500/20 text-emerald-200", label: "ACTIVITY" },
 };
 
 const ExperienceTimeline: React.FC = () => {
   return (
     <div className="relative overflow-x-auto pb-10">
-      <div className="pointer-events-none absolute left-8 right-0 top-16 h-px bg-gradient-to-r from-violet-500/60 via-slate-400/30 to-transparent" />
+      <div className="pointer-events-none absolute left-8 right-0 top-16 h-px bg-gradient-to-r from-violet-500/40 via-slate-400/20 to-transparent" />
       <div className="relative flex min-w-[820px] gap-6 pl-2 pr-6">
-        {experienceTimeline.map((item) => {
+        {experiences.map((item: ExperienceItem) => {
           const meta = typeIconMap[item.type];
           const Icon = meta.icon;
           return (
@@ -37,7 +35,7 @@ const ExperienceTimeline: React.FC = () => {
               <p className="mt-3 text-sm leading-relaxed text-slate-200">{item.description}</p>
               {item.tags && item.tags.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {item.tags.map((tag) => (
+                  {item.tags.map((tag: string) => (
                     <span
                       key={`${item.id}-${tag}`}
                       className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-slate-100"

@@ -84,6 +84,42 @@
     transform: rotate(-6deg);
   }
 
+  .brush-text {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.05em 0.25em;
+    color: #0f172a;
+    font-weight: 800;
+  }
+
+  .brush-text::before {
+    content: "";
+    position: absolute;
+    inset: -0.2em -0.35em -0.25em -0.35em;
+    background: url("/brush.png") center/contain no-repeat;
+    z-index: -1;
+    opacity: 0.95;
+  }
+
+  .brush-frame {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 240px;
+    background: transparent;
+  }
+
+  .brush-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/brush2.png") center/contain no-repeat;
+    z-index: -1;
+    opacity: 0.98;
+  }
+
   html {
     font-family: var(--font-sans);
     scroll-behavior: smooth;
