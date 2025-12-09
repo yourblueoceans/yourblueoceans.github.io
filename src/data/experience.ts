@@ -12,6 +12,14 @@ export type ExperienceItem = {
 
 export const experiences: ExperienceItem[] = [
   {
+    id: "naver-smartstore",
+    type: "work",
+    period: "2024.01 ~ 2025.11.",
+    title: "네이버 스마트스토어 (중국구매대행 사업 운영)",
+    description: "중국구매대행 상품 소싱, 재고·발주 관리, 고객 CS 대응, 매출/리뷰 데이터 분석을 통한 판매전략 수립 및 자동화 툴 활용",
+    tags: ["eCommerce", "재고관리", "CS", "데이터분석"],
+  },
+  {
     id: "koreanair",
     type: "work",
     period: "2023.02.06. ~ 2023.08.31.",
