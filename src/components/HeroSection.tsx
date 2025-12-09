@@ -1,5 +1,5 @@
 import React from "react";
-import { Shield, Cloud, Network, Award, Layers } from "lucide-react";
+import { Shield, Award, Layers } from "lucide-react";
 
 const metrics = [
   { icon: Layers, label: "74-day AWS PII PoC" },
@@ -21,10 +21,10 @@ const HeroSection: React.FC = () => (
           </div>
 
           <h1 className="hero-title space-y-2 leading-tight tracking-tight text-white">
-            <span className="hero-line text-balance text-3xl md:text-4xl lg:text-5xl">
+            <span className="hero-line hero-title-main text-balance text-3xl md:text-4xl lg:text-5xl">
               앞에서는 서비스, 뒤에서는 보안.
             </span>
-            <span className="hero-line text-balance text-3xl md:text-4xl lg:text-5xl">
+            <span className="hero-line hero-title-accent text-balance text-3xl md:text-4xl lg:text-5xl">
               <span className="paint-pill">모르는 건 빠르게 만들면서 배우는</span> 서상원입니다.
             </span>
           </h1>
